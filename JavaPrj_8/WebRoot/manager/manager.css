@@ -1,0 +1,41 @@
+/*FormBase*/
+.FormBase {
+	BORDER-RIGHT: #ccc 1px double; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px double; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #ccc 1px double; PADDING-TOP: 0.2em; BORDER-BOTTOM: #ccc 1px double; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #fff
+}
+* HTML .FormBase {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+* + HTML .FormBase {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+/*FormFocus*/
+.FormFocus {
+	BORDER-RIGHT: #ccc 1px double; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px double; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #ccc 1px double; PADDING-TOP: 0.2em; BORDER-BOTTOM: #ccc 1px double; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #fff
+}
+* + HTML .FormFocus {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+* HTML .FormFocus {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+.FormFocus {
+	BORDER-RIGHT: #3399ff 1px double; BORDER-TOP: #3399ff 1px double; BORDER-LEFT: #3399ff 1px double; BORDER-BOTTOM: #3399ff 1px double; BACKGROUND-COLOR: #c0ddfc
+}
+/*nofocus*/
+.nofocus {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 0px; BACKGROUND: #eee; PADDING-BOTTOM: 0.4em; BORDER-LEFT: #ccc 1px solid; COLOR: #545454; PADDING-TOP: 0.4em; BORDER-BOTTOM: #ccc 1px solid
+}
+* HTML .nofocus {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+* + HTML .nofocus {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; HEIGHT: 26px
+}
+/*label*/
+LABEL {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 6px; BORDER-TOP: 0px; PADDING-LEFT: 6px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; 
+}
+/*areamouseover*/
+.areamouseover {
+	BORDER-RIGHT: #3399ff 1px solid; BORDER-TOP: #3399ff 1px solid; BACKGROUND: #c0ddfc; BORDER-LEFT: #3399ff 1px solid; BORDER-BOTTOM: #3399ff 1px solid
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JavaPrj_8"
+  id="myeclipse.1259476399901"
+  context-root="/JavaPrj_8"
+  j2ee-spec="5.0"
+  archive="JavaPrj_8.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
