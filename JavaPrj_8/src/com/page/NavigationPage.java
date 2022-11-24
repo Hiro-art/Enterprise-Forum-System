@@ -1,5 +1,8 @@
 package com.page;
 
+/**
+ * 导航页面
+ */
 public class NavigationPage {
 	
 	private String sname;

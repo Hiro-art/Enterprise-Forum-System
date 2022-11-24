@@ -2,6 +2,9 @@ package com.page;
 
 import java.util.Date;
 
+/**
+ *
+ */
 public class IndexPage {
 	
 	private String author;

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.*;
-import com.entity.*;
+import com.Bean.*;
 
 public class ServletLogin extends HttpServlet {
 

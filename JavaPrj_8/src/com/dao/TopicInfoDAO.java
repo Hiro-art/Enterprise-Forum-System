@@ -8,8 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.page.*;
-import com.entity.*;
+import com.Bean.*;
 
+/**
+ * 主贴数据访问对象
+ */
 public class TopicInfoDAO {
 
 	private BaseDAO dao = new BaseDAO();

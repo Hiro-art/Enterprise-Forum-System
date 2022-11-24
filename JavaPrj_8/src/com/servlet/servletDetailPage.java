@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.*;
-import com.entity.*;
+import com.Bean.*;
 import com.match.CheckDAO;
 import com.page.*;
 

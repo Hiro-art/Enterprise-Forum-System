@@ -1,5 +1,8 @@
 package com.page;
 
+/**
+ *	帖子列表页面类
+ */
 public class ListPage {
 	
 	private  String title;

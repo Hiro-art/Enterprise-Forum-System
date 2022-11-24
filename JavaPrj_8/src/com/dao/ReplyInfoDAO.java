@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.entity.*;
+import com.Bean.*;
 import com.page.*;
 
+/**
+ * 跟帖数据访问对象
+ */
 public class ReplyInfoDAO {
 
 	private BaseDAO dao = new BaseDAO();

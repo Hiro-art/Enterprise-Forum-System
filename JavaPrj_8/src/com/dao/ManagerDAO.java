@@ -5,8 +5,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.entity.SectionInfo;
+import com.Bean.SectionInfo;
 
+/**
+ * 管理员数据访问对象
+ */
 public class ManagerDAO {
 
 	private BaseDAO dao = new BaseDAO();

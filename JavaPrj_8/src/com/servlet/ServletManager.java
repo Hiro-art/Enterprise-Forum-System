@@ -12,9 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.ManagerDAO;
 import com.dao.UserInfoDAO;
-import com.entity.UserInfo;
+import com.Bean.UserInfo;
 import com.match.CheckDAO;
-import com.sun.corba.se.spi.activation.Repository;
 
 public class ServletManager extends HttpServlet {
 

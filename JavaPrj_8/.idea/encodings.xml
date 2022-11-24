@@ -2,6 +2,10 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/sql/bbs.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/Bean/ReplyInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/Bean/SectionInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/Bean/TopicInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/Bean/UserInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/dao/BaseDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/dao/CommonDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/dao/ManagerDAO.java" charset="UTF-8" />
@@ -9,10 +13,6 @@
     <file url="file://$PROJECT_DIR$/src/com/dao/SectionInfoDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/dao/TopicInfoDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/dao/UserInfoDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/entity/ReplyInfo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/entity/SectionInfo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/entity/TopicInfo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/entity/UserInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/match/CheckDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/page/DetailPage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/page/IndexPage.java" charset="UTF-8" />

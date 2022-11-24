@@ -3,8 +3,11 @@ package com.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.entity.*;
+import com.Bean.*;
 
+/**
+ * 普通用户数据访问对象
+ */
 public class UserInfoDAO {
 	private BaseDAO dao = new BaseDAO();
 

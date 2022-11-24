@@ -3,12 +3,14 @@ package com.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import com.entity.SectionInfo;
+import com.Bean.SectionInfo;
 import com.page.*;
 
+/**
+ * 板块数据访问对象
+ */
 public class SectionInfoDAO {
 
 	private BaseDAO dao = new BaseDAO();

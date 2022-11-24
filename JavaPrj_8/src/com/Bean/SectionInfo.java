@@ -1,4 +1,4 @@
-package com.entity;
+package com.Bean;
 
 /**
  * 板块对象类
