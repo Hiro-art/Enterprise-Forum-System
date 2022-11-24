@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="java.util.*,com.dao.*,com.page.*,com.entity.*"%>
+<%@ page import="java.util.*,com.dao.*,com.page.*,com.Bean.*"%>
 <%@ include file="checkManagerLogin.jsp"%>
 <%
 	//初始化变量

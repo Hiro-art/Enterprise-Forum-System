@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8" import="com.entity.*"%>
+    pageEncoding="utf-8" import="com.Bean.*"%>
 <%
 	UserInfo temp = (UserInfo)session.getAttribute("users"); 
 	if(temp == null){

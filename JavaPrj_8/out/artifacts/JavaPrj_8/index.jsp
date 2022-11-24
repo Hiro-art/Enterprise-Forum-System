@@ -9,7 +9,7 @@
 		<TITLE>欢迎访问论坛首页</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=utf-8">
 		<Link rel="stylesheet" type="text/css" href="style/style.css"></Link>
-	</HEAD>H
+	</HEAD>
 	<BODY>
 		<DIV>
 		</DIV>
