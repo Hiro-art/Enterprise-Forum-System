@@ -2,6 +2,9 @@ package com.entity;
 
 import java.util.Date;
 
+/**
+ * 普通用户对象类
+ */
 public class UserInfo {
 	private Integer uid;			//用户id
 	private String uname;			//用户名

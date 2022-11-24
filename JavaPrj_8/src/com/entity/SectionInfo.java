@@ -1,5 +1,8 @@
 package com.entity;
 
+/**
+ * 板块对象类
+ */
 public class SectionInfo {
 
 	private Integer sid; // 版块编号

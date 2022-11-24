@@ -2,6 +2,9 @@ package com.entity;
 
 import java.util.Date;
 
+/**
+ * 跟帖对象类
+ */
 public class ReplyInfo{
 	private Integer rid;			// 跟帖编号
 	private Integer rtid;			// 回复的主帖编号

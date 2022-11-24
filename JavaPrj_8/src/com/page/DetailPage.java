@@ -2,6 +2,9 @@ package com.page;
 
 import java.util.Date;
 
+/**
+ * 帖子具体信息展示页面类
+ */
 public class DetailPage {
 	
 	private String title;

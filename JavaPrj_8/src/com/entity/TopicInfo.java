@@ -2,6 +2,9 @@ package com.entity;
 
 import java.util.Date;
 
+/**
+ * 帖子对象类
+ */
 public class TopicInfo {
 	private Integer tid;			// 帖子编号
 	private Integer tsid;			// 所在版块编号
