@@ -14,6 +14,7 @@
 	<%@ include file="showLogin.jsp" %>
 	</DIV>
 <BR/>
+
 <!--      导航        -->
 <DIV>
 	&gt;&gt;<B><a href="index.jsp">论坛首页</a></B>
