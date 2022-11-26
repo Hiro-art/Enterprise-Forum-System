@@ -95,7 +95,7 @@ CREATE TABLE `userinfo` (
                             `uName` varchar(10) NOT NULL default '',
                             `uPassWord` varchar(20) NOT NULL default '',
                             `uSex` tinyint(1) NOT NULL default '0',
-                            `uFace` varchar(5) NOT NULL default '',
+                            `uFace` varchar(7) NOT NULL default '',
                             `uRegTime` datetime ,
                             `uType` int(11) NOT NULL default '0',
                             PRIMARY KEY  (`uId`),

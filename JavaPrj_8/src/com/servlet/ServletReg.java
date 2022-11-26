@@ -88,7 +88,7 @@ public class ServletReg extends HttpServlet {
 		if (udao.checkReg(userName, passWord, sexType, userFace)) {
 			//
 			out.println("注册成功！");
-			response.sendRedirect("/login.jsp");
+			response.sendRedirect("/JavaPri_8/login.jsp");
 		} else {
 			//
 			out.println("注册失败！");

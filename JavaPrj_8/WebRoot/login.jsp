@@ -58,7 +58,7 @@ function check() {
   <tr>
     <td height="100" align="center" valign="middle"><h1>提示信息 </h1>
       <p>您已经登录，无须重复登录 </p>
-    <p><a href="/bbs">如果浏览器没有转向, 请点击这里. </a></p></td>
+    <p><a href="/login.jsp">如果浏览器没有转向, 请点击这里. </a></p></td>
   </tr>
 	</table>
 <%
