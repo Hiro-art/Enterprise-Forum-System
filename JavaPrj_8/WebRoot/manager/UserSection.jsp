@@ -23,7 +23,7 @@
     <DIV align="left">当前操作是：用户管理</DIV>
     <HR style="WIDTH: 99%; COLOR: #cccccc; HEIGHT: 1px;">
 </DIV>
-<table border="1" cellspacing="0">
+<table border="1" cellspacing="0" align="center">
     <tr>
         <td>编号</td>
         <td>用户名</td>

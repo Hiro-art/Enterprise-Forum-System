@@ -70,6 +70,12 @@ body { font-size:12px;
   <tr>
     <td height="21" align="center" valign="middle" bgcolor="#C5DEF5" style="background-image:url(image/topbar.jpg); background-position-y:30%; border-bottom:1px solid #000000">论坛后台管理</td>
   </tr>
+    <tr></tr>
+    <tr>
+        <td height="21" align="left" >
+            <button onclick="location='../index.jsp'">退出管理员系统</button>
+        </td>
+    </tr>
   <tr>
     <td height="958" align="center" valign="middle"><table width="98%" height="100%"  border="0" cellpadding="0" cellspacing="0">
 	  <tr><td height="891" align="center" valign="middle"><table width="100%" height="902"  border="0" align="center" cellpadding="0" cellspacing="0">
@@ -93,7 +99,7 @@ body { font-size:12px;
                     <tr id="managerTr">
                       <td  id="sub2" align="left" valign="middle" style="display:none;background-image:url(image/top_level_bg.gif);">
                         <div><a href="UserSection.jsp" target="main">用户管理</a></div>
-                        <div><a href="#" target="main">用户添加</a></div>
+                        <div><a href="addUser.jsp" target="main">用户添加</a></div>
                           <div><a href="#" target="main">用户删除</a></div>
                           <div><a href="#" target="main">用户信息修改</a></div></td>
                     </tr>

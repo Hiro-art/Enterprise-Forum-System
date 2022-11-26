@@ -47,7 +47,23 @@
     </init-param>
   </servlet>
 
+    <!--  新增  -->
 
+    <servlet>
+        <servlet-name>servletAddUser</servlet-name>
+        <servlet-class>com.servlet.ServletAddUser</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletAddUser</servlet-name>
+        <url-pattern>/ServletAddUser</url-pattern>
+    </servlet-mapping>
+
+    <!--  新增  -->
 
  <servlet-mapping>
   <servlet-name>sr</servlet-name>
