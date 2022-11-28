@@ -25,7 +25,7 @@ function check() {
     }
 
     if(uPass != uPass1){
-        alert("2次密码不一样。");
+        alert("2次密码不一样");
         return false;
     }
 }
