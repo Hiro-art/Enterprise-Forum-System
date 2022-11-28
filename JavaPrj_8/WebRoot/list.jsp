@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.*,com.page.*,com.dao.*,com.Bean.*"%>
 <%
+	//要写一个tag捏，歇一会晚上写
 	SectionInfoDAO section_dao = new SectionInfoDAO();
 	TopicInfoDAO topic_dao = new TopicInfoDAO();
 	ReplyInfoDAO reply_dao = new ReplyInfoDAO();

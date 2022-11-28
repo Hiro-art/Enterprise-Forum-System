@@ -22,7 +22,7 @@ CREATE TABLE `replyinfo` (
                              `rUId` int(11) NOT NULL default '0',
                              `rTopic` varchar(20) default '',
                              `rContents` text NOT NULL,
-                             `rPublishTime` datetime ,
+                             `rPublishTime` datetime,
                              `rModifyTime` datetime default NULL,
                              PRIMARY KEY  (`rId`),
                              KEY `FK_rUId` (`rUId`),
