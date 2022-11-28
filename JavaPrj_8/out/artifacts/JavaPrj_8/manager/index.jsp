@@ -70,7 +70,6 @@ body { font-size:12px;
   <tr>
     <td height="21" align="center" valign="middle" bgcolor="#C5DEF5" style="background-image:url(image/topbar.jpg); background-position-y:30%; border-bottom:1px solid #000000">论坛后台管理</td>
   </tr>
-    <tr></tr>
     <tr>
         <td height="21" align="left" >
             <button onclick="location='../index.jsp'">退出管理员系统</button>
