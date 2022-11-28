@@ -8,16 +8,7 @@
 <c:set var="editreply" value="${requestScope.editreply}"/>
 <c:set var="action" value="${requestScope.action}"/>
 <jsp:setProperty name="page_sid" property="sid" value="${sid}"/>
-<%
-	//获得请求对象的属性
-	Integer sid = (Integer)request.getAttribute("sid");
-	Integer tid = (Integer)request.getAttribute("tid");
-	TopicInfo edittopic = (TopicInfo)request.getAttribute("edittopic");
-	ReplyInfo editreply = (ReplyInfo)request.getAttribute("editreply");
-	String action = (String)request.getAttribute("action");
-	//设置pageCoontex属性 
-	pageContext.setAttribute("page_sid",sid);
-%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML>
 <HEAD>
