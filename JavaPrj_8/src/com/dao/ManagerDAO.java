@@ -60,7 +60,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据id，获得它的父版块信息
-	 * 
+	 *
 	 * @param id
 	 *            版块编号
 	 * @return SectionInfo 返回一个对象
@@ -91,7 +91,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据版块id，获得所有子版块
-	 * 
+	 *
 	 * @param sId
 	 *            版块编号
 	 * @return List<SectionInfo> 返回一个集合
@@ -123,7 +123,7 @@ public class ManagerDAO {
 
 	/**
 	 * 判断对象是否在所有同级版块中的最后一个
-	 * 
+	 *
 	 * @param obj
 	 *            要比较的SectionInfo对象
 	 * @return Boolean 返回一个布尔型 true：是 false：否
@@ -158,7 +158,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据id，递归获得根节点
-	 * 
+	 *
 	 * @param id
 	 */
 	private void traverseRootNodeById(Integer id) {//
@@ -183,7 +183,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据id，递归获得空格符号
-	 * 
+	 *
 	 * @param id
 	 *            版块编号
 	 * @param blank
@@ -206,7 +206,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据id，获得同级节点的个数
-	 * 
+	 *
 	 * @param id
 	 *            版块编号
 	 * @return Integer 返回一个整型
@@ -231,7 +231,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据根版块的结果集list，按层级关系获得所有子版块
-	 * 
+	 *
 	 * @param listParent
 	 *            父节点的结果集
 	 * @return List<String> 返回一个集合
@@ -241,7 +241,7 @@ public class ManagerDAO {
 		Boolean flag = false;// 为最后一个根节点做记号
 		String image = "";	//图片信息
 		String name = "";	//名称信息
-	
+
 		for (int i = 0; i < listParent.size(); i++) {//遍历所有的父版块
 			sParentId = listParent.get(i).getSid();	//获得父版块编号
 			if (i == 0) {							//第一个根节点
@@ -250,7 +250,7 @@ public class ManagerDAO {
 				flag = true;						//设置为最后一个
 				image = lastRootImage;				//设置图片信息
 			} else {
-				image = rootImage;					
+				image = rootImage;
 			}
 			name = "<a href=\"../servletListPage?sid="
 			+ listParent.get(i).getSid() + "\" target=\"_blank\">"
@@ -269,7 +269,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据根版块的结果集list，按层级关系获得所有子版块对象
-	 * 
+	 *
 	 * @param listParent
 	 *            父节点的结果集
 	 * @return List<SectionInfo> 返回一个结果集
@@ -292,7 +292,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据版块id，递归获得当前根节点下的所有子节点
-	 * 
+	 *
 	 * @param sId
 	 *            版块id
 	 * @param flag
@@ -336,12 +336,12 @@ public class ManagerDAO {
 					+ list.get(i).getSid()+ eMoveBt+ "</div>");//添加版块节点信息
 			getAllLeafById(sId, flag);				//调用自身，执行递归
 		}
-	
+
 	}
 
 	/**
 	 * 根据版块id，递归获得当前根节点下的所有子节点
-	 * 
+	 *
 	 * @param sId
 	 *            版块id
 	 */
@@ -362,7 +362,7 @@ public class ManagerDAO {
 
 	/**
 	 * 添加版块
-	 * 
+	 *
 	 * @param sParentId
 	 *            父版块编号
 	 * @param sName
@@ -374,7 +374,7 @@ public class ManagerDAO {
 						"uName = ?";//根据用户名来查找用户编号
 		Integer sMasterId = 0;//初始化用户编号
 		try {
-			rs = dao.executeQuery(sql, 
+			rs = dao.executeQuery(sql,
 						new Object[] { uName });//执行查询
 			if(rs.next()) {//如果能够查找到记录
 				sMasterId = rs.getInt("uId");//设置用户编号
@@ -400,7 +400,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据版块id获得版块信息
-	 * 
+	 *
 	 * @param sId
 	 *            版块编号
 	 * @return SectionInfo 返回一个对象
@@ -430,7 +430,7 @@ public class ManagerDAO {
 
 	/**
 	 * 修改版块信息
-	 * 
+	 *
 	 * @param sId
 	 *            版块编号
 	 * @param sName
@@ -442,7 +442,7 @@ public class ManagerDAO {
 									"uName = ?";//根据用户名来查找用户编号
 		Integer sMasterId = 0;//初始化用户编号
 		try {
-			rs = dao.executeQuery(sql, 
+			rs = dao.executeQuery(sql,
 				new Object[] { uName });//执行查询
 			if(rs.next()) {//如果能够查找到记录
 				sMasterId = rs.getInt("uId");//设置用户编号
@@ -454,7 +454,7 @@ public class ManagerDAO {
 					"sMasterId = ? where sId = ?";//更新SQL语句
 		Integer result = 0;							//更新记录数
 		try {
-			result = dao.executeUpdate(sql, 
+			result = dao.executeUpdate(sql,
 					new Object[] { sName,sMasterId, sId });//执行更新
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -468,7 +468,7 @@ public class ManagerDAO {
 
 	/**
 	 * 把源版块作为目标版块的子版块
-	 * 
+	 *
 	 * @param sourceSid
 	 *            原版块编号
 	 * @param targetSid
@@ -497,7 +497,7 @@ public class ManagerDAO {
 
 	/**
 	 * 把源版块作为根版块
-	 * 
+	 *
 	 * @param sourceSid
 	 *            原版块编号
 	 * @return Boolean 返回一个布尔型 true:成功
@@ -519,7 +519,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据版块id，判断是否含有子节点
-	 * 
+	 *
 	 * @param sid
 	 *            版块编号
 	 * @return Boolean 返回一个布尔型 true：是
@@ -545,7 +545,7 @@ public class ManagerDAO {
 
 	/**
 	 * 根据版块id，删除所有主帖和跟帖
-	 * 
+	 *
 	 * @param sid
 	 *            版块编号
 	 * @return Boolean 返回一个布尔型 true：成功
@@ -559,6 +559,49 @@ public class ManagerDAO {
 			result = dao.executeUpdate(sql1,new Object[] { sid });//执行跟帖记录删除
 			result = dao.executeUpdate(sql2, new Object[] { sid });//执行主贴记录删除
 			result = dao.executeUpdate(sql3, new Object[] { sid });//执行版块记录删除
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();//关闭结果集
+			dao.closeStatement();//关闭处理对象
+			dao.closeConnection();//关闭连接对象
+		}
+		return result > 0 ? true : false;
+	}
+	//TODO 锁定解锁用户功能还在做
+
+	/**
+	 * 封禁用户
+	 * @param uid 用户id
+	 * @return Boolean 返回一个布尔型 true：成功
+	 */
+	public Boolean lockUser(Integer uid)
+	{
+		String sql = "update userinfo SET uActive = \'0\' WHERE uid =?";
+		Integer result = 0;
+		try {
+			result = dao.executeUpdate(sql,new Object[] { uid });
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();//关闭结果集
+			dao.closeStatement();//关闭处理对象
+			dao.closeConnection();//关闭连接对象
+		}
+		return result > 0 ? true : false;
+	}
+
+	/**
+	 * 解封用户
+	 * @param uid 用户id
+	 * @return Boolean 返回一个布尔型 true：成功
+	 */
+	public Boolean unlockUser(Integer uid)
+	{
+		String sql = "update userinfo SET uActive = \'1\' WHERE uid =?";
+		Integer result = 0;
+		try {
+			result = dao.executeUpdate(sql,new Object[] { uid });
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
