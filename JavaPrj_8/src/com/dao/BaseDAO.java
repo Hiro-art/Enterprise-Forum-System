@@ -14,7 +14,7 @@ import java.util.List;
 public class BaseDAO {
 	public BaseDAO() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

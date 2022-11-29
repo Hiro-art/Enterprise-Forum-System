@@ -99,7 +99,9 @@ body { font-size:12px;
                       <td  id="sub2" align="left" valign="middle" style="display:none;background-image:url(image/top_level_bg.gif);">
                         <div><a href="UserSection.jsp" target="main">用户管理</a></div>
                         <div><a href="addUser.jsp" target="main">用户添加</a></div>
+<%--                          TODO--%>
                           <div><a href="#" target="main">用户删除</a></div>
+                          <div><a href="#" target="main">用户锁定与解锁</a></div>
                           <div><a href="#" target="main">用户信息修改</a></div></td>
                     </tr>
                 </table></td>
