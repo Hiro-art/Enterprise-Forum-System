@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
+
       <root url="jar://$PROJECT_DIR$/JavaPrj_8/lib/javax.servlet.jsp.jstl.jar!/" />
       <root url="jar://$PROJECT_DIR$/JavaPrj_8/lib/javax.servlet.jar!/" />
       <root url="jar://$PROJECT_DIR$/JavaPrj_8/lib/javax.annotation.jar!/" />
@@ -14,5 +15,6 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+
   </library>
 </component>

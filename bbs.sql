@@ -1,3 +1,4 @@
+
 # MySQL-Front 5.0  (Build 1.0)
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
@@ -22,7 +23,7 @@ CREATE TABLE `replyinfo` (
                              `rUId` int(11) NOT NULL default '0',
                              `rTopic` varchar(20) default '',
                              `rContents` text NOT NULL,
-                             `rPublishTime` datetime,
+                             `rPublishTime` datetime ,
                              `rModifyTime` datetime default NULL,
                              PRIMARY KEY  (`rId`),
                              KEY `FK_rUId` (`rUId`),
@@ -98,12 +99,13 @@ CREATE TABLE `userinfo` (
                             `uFace` varchar(7) NOT NULL default '',
                             `uRegTime` datetime ,
                             `uType` int(11) NOT NULL default '0',
+                            `uActive` boolean default '1',
                             PRIMARY KEY  (`uId`),
                             UNIQUE KEY `UQ_uName` (`uName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'1.gif','2009-01-11 22:17:48',2);
-INSERT INTO `userinfo` VALUES (7,'test','test',1,'2.gif','2009-11-30 14:52:58',2);
-INSERT INTO `userinfo` VALUES (8,'javaweb','javaweb',0,'2.gif','2010-01-29 10:34:37',0);
+INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'1.gif','2009-01-11 22:17:48',2,1);
+INSERT INTO `userinfo` VALUES (7,'test','test',1,'2.gif','2009-11-30 14:52:58',2,1);
+INSERT INTO `userinfo` VALUES (8,'javaweb','javaweb',0,'2.gif','2010-01-29 10:34:37',0,1);
 
 #
 #  Foreign keys for table replyinfo
