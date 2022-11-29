@@ -32,6 +32,7 @@
         <td>头像</td>
         <td>注册时间</td>
         <td>类别</td>
+        <td>用户状态</td>
     </tr>
 
     <%
@@ -59,23 +60,33 @@
                     }else if (i==5){
                         out.print("</td><td>"+"<img src='../image/head/" + lst.getString(i)+ "'" +" width='40' height='40'>");
                     }
+                    else if(i==7)
+                    {
+                        if (lst.getString(i).equals("0")){
+                            out.print("</td><td>"+"会员"+"</td>");
+                        }
+                        else if (lst.getString(i).equals("1")){
+                            out.print("</td><td>"+"版主"+"</td>");
+                        }
+                        else if (lst.getString(i).equals("2")){
+                            out.print("</td><td>"+"管理员"+"</td>");
+                        }
+
+                    }
                     else{
                         out.print("</td><td>"+lst.getString(i));
                     }
                     //修改输出图片
 
-                }
+                }//todo
 
                 if (i==columns){
-                    if (lst.getString(i).equals("0")){
-                        out.print("</td><td>"+"会员"+"</td></tr>");
+                    if (lst.getString(i).equals("1")){
+                        out.print("</td><td>"+"正常</tr>");
                     }
-                    else if (lst.getString(i).equals("1")){
-                        out.print("</td><td>"+"版主"+"</td></tr>");
-                    }
-                    else if (lst.getString(i).equals("2")){
-                        out.print("</td><td>"+"管理员"+"</td></tr>");
-                    }
+                    else if (lst.getString(i).equals("0")){
+                        out.print("</td><td>"+"锁定</tr>");
+                    }else out.print("</td><td>"+"正常</tr>");
                 }
             }
             System.out.println("\n");
