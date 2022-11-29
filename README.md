@@ -40,6 +40,7 @@
 >3.用户、管理员关键字查询帖子功能<br>
 >4.管理员对用户进行增删改查<br>
 
+
 <br><br><br>
 ## 待修改部分：
 > - [ ] Bootstrap框架开发前端界面（不允许直接下载前端模版进行修改使用）<br>
@@ -56,7 +57,28 @@
 [3] 2022/11/25 22:52 未完成功能部分补充说明<br>
 [4] 2022/11/26 13:18 实现后台管理员对用户的查询，以及已注册用户的信息显示，修改了注册时选中第9张图后无法成功注册的问题<br>
 [5] 2022/11/29 21:36 实现用户锁定功能，但是管理员锁定解锁用户尚未完成<br>
+[6] 2022/11/30 00:10 实现后台管理员对于用户的删改，具体修改新增如下：<br>
 
+- 修改：<br>
+
+  >1、UserDAOInfo:	新增deleteUser，updateUser方法<br>
+  >
+  >2、CheckDAO:	新增checkUserIdIsExist方法<br>
+  >
+  >3、manager/index.jsp:	修改了用户删除，用户信息修改两者标签的跳转超链接<br>
+  >
+  >4、web.xml：	新增了三个Servlet<br>
+
+- 新建：<br>
+
+  >1、selectChangeUser.jsp<br>
+  >
+  >2、deleteUser.jsp<br>
+  >
+  >3、ServletDeleteUser.java<br>
+  >
+  >4、ServletChangeUser.java<br>
+<br>
 # 部署方式
 软件需求： MySQL 5.0以上版本, jdk 1.8以上版本
 ## 数据库的建立与连接
