@@ -1,4 +1,3 @@
-
 # MySQL-Front 5.0  (Build 1.0)
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
@@ -106,6 +105,7 @@ CREATE TABLE `userinfo` (
 INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'1.gif','2009-01-11 22:17:48',2,1);
 INSERT INTO `userinfo` VALUES (7,'test','test',1,'2.gif','2009-11-30 14:52:58',2,1);
 INSERT INTO `userinfo` VALUES (8,'javaweb','javaweb',0,'2.gif','2010-01-29 10:34:37',0,1);
+INSERT INTO `userinfo` VALUES (13,'qw','qw',0,'3.gif','2020-01-29 11:45:14',0,0);
 
 #
 #  Foreign keys for table replyinfo
