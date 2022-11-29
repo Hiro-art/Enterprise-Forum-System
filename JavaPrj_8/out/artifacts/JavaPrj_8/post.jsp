@@ -12,6 +12,7 @@
 	UserInfo users = (UserInfo) session.getAttribute("users");//拿到当前登录的用户
 	//设置pageCoontex属性 
 	pageContext.setAttribute("page_sid", sid);
+
 %>
 <%
 	if (users != null) {

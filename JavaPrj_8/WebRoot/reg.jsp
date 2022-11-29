@@ -3,16 +3,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML>
 <HEAD>
-<TITLE>企业论坛--注册</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=utf-8">
-<Link rel="stylesheet" type="text/css" href="style/style.css"></Link>
-<script src="js/reg.js" language="javascript"></script>
+	<TITLE>企业论坛--注册</TITLE>
+	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<Link rel="stylesheet" type="text/css" href="style/style.css"></Link>
+	<script src="js/reg.js" language="javascript"></script>
 </HEAD>
 <BODY>
 <!--      用户信息、登录、注册        -->
-	<DIV class="h">
+<DIV class="h">
 	<%@ include file="showLogin.jsp" %>
-	</DIV>
+</DIV>
 <BR/>
 <!--      导航        -->
 <DIV>

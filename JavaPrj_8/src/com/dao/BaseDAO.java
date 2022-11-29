@@ -32,7 +32,7 @@ public class BaseDAO {
 			if (conn == null || conn.isClosed()) {
 				conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/bbs?useUnicode=yes&characterEncoding=utf8",
-						"root", "2022");
+						"root", "803560");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

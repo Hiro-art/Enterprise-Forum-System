@@ -17,6 +17,7 @@
 	}
 	//设置pageCoontex属性 
 	pageContext.setAttribute("page_sid", sid);
+
 %>
 <%
 	if (users != null) {
