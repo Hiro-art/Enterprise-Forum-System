@@ -1,3 +1,4 @@
+
 # MySQL-Front 5.0  (Build 1.0)
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;

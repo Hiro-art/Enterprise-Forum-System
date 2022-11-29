@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Enterprise-Forum-System.iml" filepath="$PROJECT_DIR$/.idea/Enterprise-Forum-System.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/Enterprise-Forum-System.iml" filepath="$PROJECT_DIR$/Enterprise-Forum-System.iml" />
+
     </modules>
   </component>
 </project>
