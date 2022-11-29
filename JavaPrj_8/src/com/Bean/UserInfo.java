@@ -13,7 +13,7 @@ public class UserInfo {
 	private String uface;			//用户头像路径
 	private Date uregtime;			//用户注册时间
 	private Integer utype;			//用户类型
-	private boolean uActive = true;	//用户状态，true正常，false封禁，默认true
+	private boolean uActive;	//用户状态，true正常，false封禁，默认true
 
 	public Integer getUtype() {
 		return utype;
