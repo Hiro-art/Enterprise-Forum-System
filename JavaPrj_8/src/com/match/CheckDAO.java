@@ -31,6 +31,32 @@ public class CheckDAO {
 	}
 
 	/**
+	 * 验证用户编号是否已经存在
+	 * @param uId 用户编号
+	 * @return Boolean 返回一个布尔型 true：存在
+	 */
+	public Boolean checkUserIdIsExist(String uId){//验证用户编号是否存在
+		String sql = "select * from userInfo where uId = ?";
+		Boolean flag = false;//标记是否查询到该用户编号
+
+		try {
+			rs = dao.executeQuery(sql, new Object[] { uId });//执行查询
+			if(rs != null && rs.next()){//如果结果集中存在记录
+				flag = true;//设置为查询到
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();//关闭结果集
+			dao.closeStatement();//关闭处理对象
+			dao.closeConnection();//关闭连接对象
+		}
+		return flag;//返回查询结果
+
+	}
+
+
+	/**
 	 * 验证用户名是否已经存在
 	 * @param uName
 	 * @return Boolean 返回一个布尔型 true：存在

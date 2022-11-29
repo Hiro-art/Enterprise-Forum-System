@@ -58,9 +58,37 @@
         </init-param>
     </servlet>
 
+    <servlet>
+        <servlet-name>servletDeleteUser</servlet-name>
+        <servlet-class>com.servlet.ServletDeleteUser</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>servletChangeUser</servlet-name>
+        <servlet-class>com.servlet.ServletChangeUser</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>servletAddUser</servlet-name>
         <url-pattern>/ServletAddUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>servletDeleteUser</servlet-name>
+        <url-pattern>/ServletDeleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>servletChangeUser</servlet-name>
+        <url-pattern>/ServletChangeUser</url-pattern>
     </servlet-mapping>
 
     <!--  新增  -->

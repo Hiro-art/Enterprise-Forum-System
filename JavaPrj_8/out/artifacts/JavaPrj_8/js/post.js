@@ -8,7 +8,6 @@ function check(flag){
             alert("标题不能为空,长度在4-20");
             return false;
         }
-
     }
 
     if(content==="" || !content.match(regContent)) {

@@ -65,7 +65,51 @@ public class UserInfoDAO {
 		}
 		return user;
 	}
-	
+
+	/**
+	 * 根据用户编号修改信息
+	 * @param uid 用户编号
+	 * @param userName 用户名
+	 * @param passWord 用户密码
+	 * @param sexType 用户性别
+	 * @param state 用户状态
+	 * @param userFace 用户头像
+	 * @return 布尔值
+	 */
+	public boolean updateUser(String uid,String userName,String passWord,boolean sexType,boolean state,String userFace){
+		String sql = "update userInfo set uName=? , uPassWord=? , uSex = ? ,uFace=? ,uActive=? where uId=?";
+		int result = -1;
+		try {
+			result = dao.executeUpdate(sql, new Object[] { userName, passWord,
+					sexType, userFace,state,uid });
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeStatement();
+			dao.closeConnection();
+		}
+		return result > 0 ? true : false;
+	}
+
+
+	/**
+	 * 根据id删除用户
+	 * @param uid
+	 * @return
+	 */
+	public boolean deleteUser(String uid){
+		String sql = "delete from userInfo where uId=?";
+		int result = -1;
+		try {
+			result = dao.executeUpdate(sql, new Object[] { uid });
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeStatement();
+			dao.closeConnection();
+		}
+		return result > 0 ? true : false;
+	}
 	/**
 	 * 检查用户登录名和密码
 	 * 
