@@ -67,7 +67,7 @@
   >
   >3、manager/index.jsp:	修改了用户删除，用户信息修改两者标签的跳转超链接<br>
   >
-  >4、web.xml：	新增了三个Servlet<br>
+  >4、web.xml：	新增了2个Servlet<br>
 
 - 新建：<br>
 
