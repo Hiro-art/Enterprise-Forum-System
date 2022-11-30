@@ -10,8 +10,14 @@
 	//out.print("<h1>"+action+sid+tid+"</h1>");
 	//获得会话对象的属性
 	UserInfo users = (UserInfo) session.getAttribute("users");//拿到当前登录的用户
+	if(!users.isuActive()){
+		out.println("<script>" + "alert('您已经被锁定，无法发帖！');"
+				+ "window.history.back();" + "</script>");
+
+	}
 	//设置pageCoontex属性 
 	pageContext.setAttribute("page_sid", sid);
+
 
 %>
 <%
@@ -31,6 +37,7 @@ function check(flag){
 	const content = document.postForm.content.value;
 	const regTopic = /^.{4,20}$/;
 	const regContent = /^(.|[\r\n]){1,1000}$/;
+
 	if(flag){
 		if(topic==="" || !topic.match(regTopic)){
 			alert("标题不能为空,长度在4-20");
