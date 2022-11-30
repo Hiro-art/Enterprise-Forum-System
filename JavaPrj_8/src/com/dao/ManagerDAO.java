@@ -568,7 +568,7 @@ public class ManagerDAO {
 		}
 		return result > 0 ? true : false;
 	}
-	//TODO 锁定解锁用户功能还在做
+
 
 	/**
 	 * 封禁用户

@@ -55,6 +55,7 @@ public class UserInfoDAO {
 				user.setUface(rs.getString("uFace"));
 				user.setUregtime(rs.getDate("uRegTime"));
 				user.setUtype(rs.getInt("uType"));
+				user.setuActive(rs.getBoolean("uActive"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,6 +162,7 @@ public class UserInfoDAO {
 				user.setUface(rs.getString("uFace"));
 				user.setUregtime(rs.getDate("uRegTime"));
 				user.setUtype(rs.getInt("uType"));
+				user.setuActive(rs.getBoolean("uActive"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
