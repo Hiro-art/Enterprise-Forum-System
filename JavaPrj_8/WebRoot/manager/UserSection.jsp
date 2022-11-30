@@ -78,7 +78,7 @@
                     }
                     //修改输出图片
 
-                }//todo
+                }
 
                 if (i==columns){
                     if (lst.getString(i).equals("1")){
