@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
- 
- <servlet>
-  <servlet-name>sr</servlet-name>
-  <servlet-class>com.servlet.ServletReg</servlet-class>
-  <init-param>
-   <param-name>character</param-name>
-   <param-value>UTF-8</param-value>
-  </init-param>
- </servlet>
- 
- <servlet>
-  <servlet-name>sl</servlet-name>
-  <servlet-class>com.servlet.ServletLogin</servlet-class>
-  <init-param>
-   <param-name>character</param-name>
-   <param-value>UTF-8</param-value>
-  </init-param>
- </servlet>
- 
-  <servlet>
-    <servlet-name>servletListPage</servlet-name>
-    <servlet-class>com.servlet.servletListPage</servlet-class>
-    <init-param>
-    <param-name>character</param-name>
-    <param-value>UTF-8</param-value>
-    </init-param>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>servletDetailPage</servlet-name>
-    <servlet-class>com.servlet.servletDetailPage</servlet-class>
-    <init-param>
-    <param-name>character</param-name>
-    <param-value>UTF-8</param-value>
-    </init-param>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>sm</servlet-name>
-    <servlet-class>com.servlet.ServletManager</servlet-class>
-    <init-param>
-    <param-name>character</param-name>
-    <param-value>UTF-8</param-value>
-    </init-param>
-  </servlet>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>sr</servlet-name>
+        <servlet-class>com.servlet.ServletReg</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>sl</servlet-name>
+        <servlet-class>com.servlet.ServletLogin</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>servletListPage</servlet-name>
+        <servlet-class>com.servlet.servletListPage</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>servletDetailPage</servlet-name>
+        <servlet-class>com.servlet.servletDetailPage</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>sm</servlet-name>
+        <servlet-class>com.servlet.ServletManager</servlet-class>
+        <init-param>
+            <param-name>character</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </servlet>
 
     <!--  新增  -->
 
@@ -58,71 +58,48 @@
         </init-param>
     </servlet>
 
-    <servlet>
-        <servlet-name>servletDeleteUser</servlet-name>
-        <servlet-class>com.servlet.ServletDeleteUser</servlet-class>
-        <init-param>
-            <param-name>character</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </servlet>
-
-    <servlet>
-        <servlet-name>servletChangeUser</servlet-name>
-        <servlet-class>com.servlet.ServletChangeUser</servlet-class>
-        <init-param>
-            <param-name>character</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>servletAddUser</servlet-name>
         <url-pattern>/ServletAddUser</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>servletDeleteUser</servlet-name>
-        <url-pattern>/ServletDeleteUser</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>servletChangeUser</servlet-name>
-        <url-pattern>/ServletChangeUser</url-pattern>
-    </servlet-mapping>
-
     <!--  新增  -->
 
- <servlet-mapping>
-  <servlet-name>sr</servlet-name>
-  <url-pattern>/ServletReg</url-pattern>
- </servlet-mapping>
- 
- <servlet-mapping>
-  <servlet-name>sl</servlet-name>
-  <url-pattern>/ServletLogin</url-pattern>
- </servlet-mapping>
- 
-  <servlet-mapping>
-    <servlet-name>servletListPage</servlet-name>
-    <url-pattern>/servletListPage</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>servletDetailPage</servlet-name>
-    <url-pattern>/servletDetailPage</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>sm</servlet-name>
-    <url-pattern>/ServletManager</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sr</servlet-name>
+        <url-pattern>/ServletReg</url-pattern>
+    </servlet-mapping>
 
- <welcome-file-list>
-  <welcome-file>index.jsp</welcome-file>
- </welcome-file-list>
- 
- <login-config>
-  <auth-method>BASIC</auth-method>
- </login-config>
+    <servlet-mapping>
+        <servlet-name>sl</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>servletListPage</servlet-name>
+        <url-pattern>/servletListPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>servletDetailPage</servlet-name>
+        <url-pattern>/servletDetailPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>sm</servlet-name>
+        <url-pattern>/ServletManager</url-pattern>
+    </servlet-mapping>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>myTag</taglib-uri>
+            <taglib-location>/WEB-INF/tld/managerSection.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
 </web-app>

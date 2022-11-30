@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--TLD是Tag Library Definition的缩写，即标签库定义，文件的后缀是tld-->
+<!--每个TLD文件对应一个标签库，一个标签库中可包含多个标签，TLD文件也称为标签库定义文件。-->
+
+<!--标签库定义文件的根元素是taglib，它可以包含多个tag子元素，每个tag子元素都定义一个标签-->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <tlib-version>1.0</tlib-version>
+    <short-name>myTag</short-name>
+    <uri></uri>
+
+    <tag>
+        <name>section</name>
+        <tag-class>com.tag.ManagerSection</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>usersection</name>
+        <tag-class>com.tag.UserSection</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+</taglib>
