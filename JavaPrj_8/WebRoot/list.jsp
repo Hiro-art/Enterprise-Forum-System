@@ -270,6 +270,52 @@
 	<%
 		if(!section_dao.isParentById(sid)){
 	%>
+
+	<table>
+		<tr>
+			<td colspan="3">
+				<form action="${pageContext.request.contextPath}/FindServlet" >
+					<input type="text" placeholder="请输入帖子名" name="partname" />
+					<input type="submit" value="搜索"/>
+				</form>
+				<%--	<form action="/FindServlet">--%>
+				<%--		<p><input type="text" placeholder="请输入帖子名" name="partname"></p>--%>
+				<%--		<p><input type="submit" value="搜索"></p>--%>
+				<%--	</form>--%>
+			</td>
+		</tr>
+		<tr>
+			<th>文章</th>
+			<th>作者</th>
+			<th>回复</th>
+		</tr>
+		<%--			<c:set>--%>
+		<%--			var="topicinfos" value="${sessionScope.topicinfos}"--%>
+		<%--			</c:set>--%>
+		<%--			<c:forEach topicinfos="${topicinfos}" var="e">--%>
+		<%--				<tr align="center">--%>
+		<%--					<td>${e.ttopic}</td>--%>
+		<%--					<td>${e.tuid}</td>--%>
+		<%--					<td>${e.treplycount}</td>--%>
+		<%--				</tr>--%>
+		<%--			</c:forEach>--%>
+		<%
+			Object topicInfos = session.getAttribute("1");
+			if (null!=topicInfos && topicInfos instanceof ArrayList){
+				ArrayList<TopicInfo> newlist = (ArrayList<TopicInfo>) topicInfos;
+				for(TopicInfo topicInfo:newlist){
+		%>
+		<tr>
+			<td><%=topicInfo.getTtopic()%></td>
+			<td><%=topicInfo.getTuid()%></td>
+			<td><%=topicInfo.getTreplycount()%></td>
+		</tr>
+		<%
+				}
+			}
+		%>
+	</table>
+
 	<!-- 主帖 -->
 
 	<DIV class="t">
