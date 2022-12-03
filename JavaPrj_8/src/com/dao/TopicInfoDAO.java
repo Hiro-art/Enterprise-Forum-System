@@ -287,6 +287,94 @@ public class TopicInfoDAO {
 		return result > 0 ? true : false;
 	}
 
+	public ArrayList<TopicInfo> findByPartName(String partName) throws SQLException {
+		dao.getConn();
+		String sql = "SELECT * FROM topicInfo where tTopic like '%" + partName + "%'";
+//            String sql = "SELECT * FROM topicInfo where ttopic like '%" + partName + "%'" ;
+
+		ArrayList<TopicInfo> topicInfosnew = new ArrayList<>();
+		try {
+			ResultSet rs = dao.executeQuery(sql);
+//			rs = dao.executeQuery(sql, new Object[] { partName });
+//            if (rs != null && rs.next()) {
+//                return rs.getString("uName");
+//            }
+
+//            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+			//pstmt.setObject(1,obj);
+//            rs = pstmt.executeQuery();
+			while(rs.next()){
+				TopicInfo topicInfo = new TopicInfo();
+//                Apost apost=new Apost();
+//                UserInfo userInfo  = new UserInfo();
+				topicInfo.setTid(rs.getInt("tId"));
+//                topicInfo.setApId(rs.getInt("apId"));
+				topicInfo.setTsid(rs.getInt("tSID"));
+				topicInfo.setTuid(rs.getInt("tUID"));
+				topicInfo.setTtopic(rs.getString("tTopic"));
+				topicInfo.setTcontents(rs.getString("tContents"));
+				topicInfo.setTclickcount(rs.getInt("tClickCount"));
+				topicInfo.setTreplycount(rs.getInt("tReplyCount"));
+				topicInfo.setTpublishtime(rs.getTimestamp("tPublishTime"));
+				topicInfo.setTmodifytime(rs.getTimestamp("tModifyTime"));
+//                topicInfo.setReplyTime(rs.getTimestamp("replyTime"));
+//                topicInfo.setReplyCount(rs.getInt("replyCount"));
+//                topicInfo.setScanCount(rs.getInt("scanCount"));
+//                userInfo.setUid(rs.getInt("userId"));
+//                apost.setUser(user);
+//                topic.setTid(rs.getInt("topId"));
+//                apost.setTopic(topic);
+//                aposts.add(apost);
+				topicInfosnew.add(topicInfo);
+			}
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();
+			dao.closeStatement();
+			dao.closeConnection();
+		}
+		return topicInfosnew;
+//		TopicInfo topicinfo = null;
+//		PreparedStatement ps = conn.prepareStatement("select * FROM dept");
+//		String sql = "SELECT * FROM topicInfo where tTopic like '%\" + partName + \"%'";
+//		String content = "";
+//		try {
+//			rs = dao.executeQuery(sql, new Object[]{partName});
+//			if (rs != null && rs.next()) {
+//				topicinfo = new TopicInfo();
+//				//
+//				topicinfo.setTclickcount(rs.getInt("tClickCount"));
+//				// <br>替换成\r\n
+//				content = rs.getString("tContents").replace("<br>", "\r\n");
+//				content = content.replace("&gt;", ">");
+//				content = content.replace("&lt;", "<");
+//				content = content.replace("&nbsp", " ");
+//
+//				topicinfo.setTcontents(content);
+//				topicinfo.setTid(rs.getInt("tId"));
+//				topicinfo.setTmodifytime(rs.getDate("tModifyTime"));
+//				topicinfo.setTpublishtime(rs.getDate("tPublishTime"));
+//				topicinfo.setTreplycount(rs.getInt("tReplyCount"));
+//				topicinfo.setTsid(rs.getInt("tSid"));
+//				topicinfo.setTtopic(rs.getString("tTopic"));
+//				topicinfo.setTuid(rs.getInt("tUid"));
+//
+//				topicInfos.add(topicinfo);
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			dao.closeResultSet();
+//			dao.closeStatement();
+//			dao.closeConnection();
+//		}
+//		return topicInfos;
+	}
+
 	// 测试
 	public static void main(String[] args) {
 		TopicInfoDAO dao = new TopicInfoDAO();
