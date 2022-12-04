@@ -1,374 +1,207 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: ldy
+  Date: 2022/11/28
+  Time: 16:35
+  To change this template use File | Settings | File Templates.
+--%>
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.*,com.page.*,com.dao.*,com.Bean.*"%>
+<%@ taglib prefix="wld" uri="TagForDividingPage"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<jsp:useBean id="user_dao" class="com.dao.UserInfoDAO" scope="request"/>
+<jsp:useBean id="common_dao" class="com.dao.CommonDAO" scope="request"/>
+<jsp:useBean id="divPage_dao" class="com.pageDividing.DivPageDAO" scope="request"/>
+
+
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-<%
-	UserInfoDAO user_dao = new UserInfoDAO();
-	
-	//获得请求对象的属性
-	Integer sid = (Integer)request.getAttribute("sid");
-	Integer tid = (Integer)request.getAttribute("tid");
-	List<DetailPage> replyList = (List<DetailPage>)request.getAttribute("replyListDetailPage");
 	DetailPage topicObj = (DetailPage)request.getAttribute("topicListDetailPage");
-	
-	//初始化分页变量
-	Integer currPage = 1;//默认选择第一页
-	Integer recordConut = 0;//记录总数
-	Integer PageCount = 0;//分页的总页数
-	Integer pageNum  = 4;//每页显示的记录数
-	Integer startIndex = 0;//开始索引
-	Integer endIndex = 0;//结束索引
-	Integer nextPage = 0;
-	Integer PreviousPage = 0;
-	
-	//获得请求对象的分页参数
-	String action = request.getParameter("action");
-	
-	//设置pageCoontex属性 
-	pageContext.setAttribute("page_sid",sid);
-	//获得登录用户的信息
-	UserInfo users = (UserInfo) session.getAttribute("users");
+	request.setAttribute("topicObj",topicObj);
 %>
-<%-- 实现分页 主要代码一 开始 --%>
-<%
-	recordConut = replyList.size();
-	//int result = recordConut % pageNum;
-	//if(result != 0){//获得分页的总页数
-		//PageCount = (recordConut / pageNum) + 1;
-	//}else{
-	//	PageCount = (recordConut / pageNum); 
-	//}
-	PageCount = (recordConut + (pageNum-1))/pageNum;//获得分页的总页数
-	
-	if("showpage".equals(action.toLowerCase())){//获得当前选择的页码
-	
-		//currPage = Integer.parseInt(request.getParameter("currPage"));
-		//当页数是非数字的时候，就转到最后一页
-		String str = (String)request.getParameter("currPage");
-		if(str.matches("(\\+|\\-){0,1}[0-9]{0,9}")){
-			currPage = Integer.parseInt(request.getParameter("currPage"));
-		}else{
-			currPage = PageCount;
-		}
-		
-		//控制【上一页】 【下一页】 的上下界限
-		if (currPage <= 1) {
-			currPage = 1;
-		}
-		if(currPage >= PageCount){
-			currPage = PageCount;
-		}
-	}
-	//
-	endIndex = (currPage * pageNum) - 1;//获得分页结束索引
-	//
-	//当得到最后一页的时候，改变结束索引
-	if(currPage == PageCount){
-		if(endIndex > recordConut){
-			if(recordConut == --endIndex){
-				endIndex -= 1;
-				startIndex = 0;
-			}else{
-			 	int offset = (endIndex - recordConut) + 1;
-				endIndex -= offset;
-				startIndex = endIndex;
-			}
-		}else{
-			startIndex = ++endIndex - pageNum;
-			endIndex = --recordConut;
-		}
-	}else if(endIndex > recordConut - 1){
-		endIndex -= 1;
-		startIndex = 0;
-	}else{
-		startIndex = endIndex - pageNum + 1 ;//获得分页开始索引
-	}
-	
-	//获得上下页的页码
-	PreviousPage = currPage;
-	nextPage  = currPage;
-%>
-<%-- 实现分页 主要代码一 结束 --%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<HTML>
-<HEAD>
- <base href="<%=basePath%>">
-<TITLE>企业论坛--看贴</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=utf-8">
-<Link rel="stylesheet" type="text/css" href="style/style.css"></Link>
-</HEAD>
+<c:set var="sid" scope="session" value="${requestScope.sid}"/>
+<c:set var="tid" scope="session" value="${requestScope.tid}"/>
+<c:set var="topicObj" scope="session" value="${sessionScope.topicObj}"/>
+<c:set var = "user" scope="session" value ="${sessionScope.users}"/>
 
-<BODY>
-<DIV>
-</DIV>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>企业论坛--看帖 </title>
+	<link href="style/page.css" rel="stylesheet">
+	<Link rel="stylesheet" type="text/css" href="style/style.css"></Link>
+	<link  href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="container">
+
+<div>
+</div>
 
 <!--      用户信息、登录、注册        -->
 
-	<DIV class="h">
-	<jsp:include page="showLogin.jsp"></jsp:include>
-	<%-- include file="showLogin.jsp" --%>
-	</DIV>
+<div class="h">
+	<jsp:include page="showLogin.jsp"/>
+</div>
 
 <!--      主体        -->
-<DIV><br/>
+<div><br/>
 	<!--      导航        -->
-<DIV>
-	&gt;&gt;<B><a href="index.jsp">论坛首页</a></B><%@ include file="navigation.jsp" %>
-</DIV>
+	<div>
+		&gt;&gt;<b><a href="index.jsp">论坛首页</a></b><jsp:include page="navigation.jsp"/>
+	</div>
 	<br/>
 
 	<!--      回复、新帖        -->
-	<DIV>
-		<A href="post.jsp?tid=<%=tid%>&sid=<%=sid%>&action=reply"><IMG src="image/reply.gif"  border="0" id=td_post></A> 
-		<A href="post.jsp?tid=<%=tid%>&sid=<%=sid%>&action=post"><IMG src="image/post.gif"   border="0" id=td_post></A>
-	</DIV>
+	<div>
+		<a href="post.jsp?tid=${sid}&sid=${sid}&action=reply"><IMG src="image/reply.gif"  border="0" id=td_post></a>
+		<a href="post.jsp?tid=${tid}&sid=${tid}&action=post"><IMG src="image/post.gif"   border="0" id=td_post></a>
+	</div>
 
-	<!--         翻 页         -->
-	<DIV class="pages">
-	
-	<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=--PreviousPage%>">上一页</a>&nbsp;|&nbsp;
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=++nextPage%>">下一页</a>&nbsp;|&nbsp;
-	<%
-		if(PageCount > 0){
-	%>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=1"><<</a>&nbsp;
-		
-	<%-- 实现分页 主要代码二 开始	只显示x个页码导航按钮 --%>
-	<%
-		 Integer x  = 3;//控制分页导航按钮显示的个数
-		 if(x > PageCount){//防止 x 超出分页总页数
-		 	x = PageCount;
-		 }
-		
-		Integer pageNavigationStartIndex = 1;//分页导航按钮开始索引
-		Integer pageNavigationEndIndex = x+1;//分页导航按钮结束索引
-		
-		if(PageCount == 1){
-		 	pageNavigationStartIndex = 1;
-		 	pageNavigationEndIndex = 2;
-		 }
-		 else
-		if(currPage <= 1){//如果选择了最前一页
-			pageNavigationStartIndex = 1;
-		}
-		else
-		if(currPage >= PageCount){//如果选择了最后一页
-			pageNavigationStartIndex = PageCount - (x-(x-1)) ;//分页导航开始索引
-			pageNavigationEndIndex = PageCount + 1;//分页导航结束索引
-		}
-		else
-		if(currPage >= x+1 && currPage < PageCount){//如果选择了最前一页与最后一页之间的区间
-			pageNavigationEndIndex = currPage+1;
-			pageNavigationStartIndex = pageNavigationEndIndex - x;
-		}
-	%>
-	<%-- 实现分页 主要代码二 结束 --%>
-	
-	<%-- 实现分页 打印代码一 开始 --%>
-	<%
-		for(int i = pageNavigationStartIndex; i < pageNavigationEndIndex; i++){
-	%>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=i%>"><%=i%></a>&nbsp;
-	<%
-		} 
-	%>
-	<%-- 实现分页 打印代码一 结束 --%>
-		<input style="width: 30px;height: 14px" type="text" onkeydown="javascript: if(event.keyCode==13){ location='servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage='+this.value+'';return false;}" \>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=PageCount%>">>></a>&nbsp;
-		Pages:&nbsp;(&nbsp;<%=currPage %>&nbsp;/&nbsp;<%=PageCount %>&nbsp;total&nbsp;)
-		&nbsp; 
-	<%
-		}
-	%>
-	
-	</DIV>
-	<!--      本页主题的标题        -->
-	<DIV>
-		<TABLE cellSpacing="0" cellPadding="0" width="100%">
-			<TR>
-				<TH class="h">本页主题: <%=topicObj.getTitle()%></TH>
-			</TR>
-			<TR class="tr2">
-				<TD>&nbsp;</TD>
-			</TR>
-		</TABLE>
-	</DIV>
-	
-	<!--      主题        -->
-	
-	<DIV class="t">
-		<TABLE style="BORDER-TOP-WIDTH: 0px; TABLE-LAYOUT: fixed" 
-						cellSpacing="0" cellPadding="0" width="100%">
-		<TR class="tr1">
-		<TH style="WIDTH: 20%">
-			<b>#1</b><br/>
-			<B><%=topicObj.getName()%></B><BR/> 
-			组别：<%=user_dao.getUserTypeNameById(topicObj.getType()) %><br/>
-			性别：<%=user_dao.getSexName(topicObj.getSex()) %><br/>
-			<img src="image/head/<%=topicObj.getFace()%>"/><BR/>
-			注册:<%=topicObj.getRegtime()%><BR/>
-		</TH>
-		<TH>
-			<H4><%=topicObj.getTitle()%></H4>
-			<DIV><%=topicObj.getContents()%></DIV>
-			<DIV class="tipad gray">
-			发表：[<%=CommonDAO.getDateFormat(topicObj.getPublishtime())%>] &nbsp;
-			<%
-				if(topicObj.getModifytime()!=null){
-			%>
-				最后修改:[<%=CommonDAO.getDateFormat(topicObj.getModifytime())%>]
-			<%
-				}
-			%>
-			<%
-				//只有管理员能修改
-				if(users != null && users.getUtype() == 2 ){ 
-			%>
-			 <A href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=delTopic"
-			  onclick = "return confirm('确定要删除吗?');">[删除]</A>
-			<%
-			 	} 
-			%>
-			<%
-				//只有管理员和当前帖发帖用户能修改
-				if(users != null && (users.getUtype() == 2 ||
-									 users.getUid() == topicObj.getUid())){ 
-			%>
-				<A href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>
-							&action=editTopic">[修改]</A>
-			<%
-			 	} 
-			%>
-			</DIV>
-		</TH>
+
+	<!-- 分页 -->
+	<!--pageSize和pageNo在标签类DivPageTag设定好了-->
+	<div class="divLeft">
+
+
+		<c:set var="pageSize" scope="session" value="10"/>
+
+		<c:set var="url" scope="session"
+			   value="servletDetailPage?tid=${tid}&sid=${sid}&action=showDetail"/>
+
+		<wld:divPage pageSize="${pageSize}" pageNo="${pageNo}" url="${url}" recordCount="${divPage_dao.getReplyCountInfoTid(tid)}"/>
+
+		<c:set var="pageNo" scope="session" value="${sessionScope.pageNo}"/>
+		<!--divPage_dao-->
+		<c:set var="thisPage" scope="session" value="${divPage_dao.CreatDetailPageInfoTid(tid,pageNo,pageSize)}"/>
+
+
+	</div>
+
+
+</div>
+<!--      本页主题的标题        -->
+<div>
+	<table cellSpacing="0" cellPadding="0" width="100%">
+		<tr>
+			<th class="h">本页主题: ${topicObj.title}</th>
+		</tr>
+		<TR class="tr2">
+			<TD>&nbsp;</TD>
 		</TR>
-		</TABLE>
-	</DIV>
-	
-	<!--      回复        -->
+	</table>
+</div>
 
-	<%
-		if(recordConut > 0){
-			for(int i = startIndex; i <= endIndex; i++){
-	%>
-		<DIV class="t">
-	<TABLE style="BORDER-TOP-WIDTH: 0px; TABLE-LAYOUT: 
-				fixed" cellSpacing="0" cellPadding="0" width="100%">
-	<TR class="tr1">
-	<TH style="WIDTH: 20%">
-		<b>#<%=i+2%></b><br/>
-		<B><%=replyList.get(i).getName()%></B><BR/> 
-		组别：<%=user_dao.getUserTypeNameById(replyList.get(i).getType()) %><BR/>
-		性别：<%=user_dao.getSexName(replyList.get(i).getSex()) %><br/>
-		<img src="image/head/<%=replyList.get(i).getFace()%>"/><BR/>
-		注册:<%=replyList.get(i).getRegtime()%><BR/>
-	</TH>
-	<TH>
-		<H4><%=replyList.get(i).getTitle()%></H4>
-		<DIV><%=replyList.get(i).getContents()%></DIV>
-		<DIV class="tipad gray">
-			发表：[<%=CommonDAO.getDateFormat(replyList.get(i).getPublishtime())%>] &nbsp;
-			<%
-				if(replyList.get(i).getModifytime()!=null){
-			%>
-				最后修改:[<%=CommonDAO.getDateFormat(replyList.get(i).getModifytime())%>]
-			<%
-				}
-			 %>
-			 <%
-				//只有管理员能修改
-				if(users != null && users.getUtype() == 2 ){ 
-			%>
-			<A href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&rid=
-				<%=replyList.get(i).getId()%>&action=delReply"
-					 onclick="return confirm('确定要删除吗?');">[删除]</A>
-			<%
-				}
-			%>
-			<%
-				//只有管理员和当前帖发帖用户能修改
-				if(users != null && (users.getUtype() == 2 ||
-								 users.getUid() == replyList.get(i).getUid())){ 
-			%>
-			<A href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&rid=
-								<%=replyList.get(i).getId()%>&action=editReply">[修改]</A>
-			<%
-				} 
-			%>
-		</DIV>
-	</TH>
-	</TR>
-	</TABLE>
-		</DIV>
-	<%			}
-			} 
-	%>
+<!--      主题        -->
+
+<div class="t">
+	<table style="BORDER-TOP-WIDTH: 0; TABLE-LAYOUT: fixed; background-color:#c1dee7">
+
+		<tr class="tr1">
+			<th style="WIDTH: 20%">
+				<b>#1</b><br/>
+				<b>${topicObj.author}</b><br/>
+				组别：${user_dao.getUserTypeNameById(topicObj.type)}<br/>
+				性别：${user_dao.getSexName(topicObj.sex)}<br/>
+				<img src="image/head/${topicObj.face}" alt=""/><br/>
+				注册:${topicObj.regtime}<br/>
+			</th>
+			<th>
+				<h4>${topicObj.title}</h4>
+				<div>${topicObj.contents}</div>
+				<div class="tipad gray">
+
+					发表：[${common_dao.getDateFormat(topicObj.publishtime)}]
+
+					<!--最后修改时间-->
+					<c:if test="${empty topicObj.modifytime}">
+						最后修改:[${common_dao.getDateFormat(topicObj.modifytime)}]
+					</c:if>
+
+					<!--只有管理员能删除-->
+					<c:if test="${user.utype eq 2}">
+						<a href="servletDetailPage?tid=${tid}&sid=${sid}&action=delTopic"
+						   onclick = "return confirm('确定要删除吗?');">[删除]</a>
+					</c:if>
+
+					<!--只有管理员和当前帖发帖用户能修改-->
+					<c:if test="${user.utype eq 2 or user.uid eq topicObj.uid}">
+						<a href="servletDetailPage?tid=${tid}&sid=${sid}
+                                &action=editTopic">[修改]</a>
+					</c:if>
+
+				</div>
+			</th>
+		</tr>
+
+	</table>
+</div>
+
+<!--      回复        -->
+<c:if test="${thisPage.size gt 0}">
+
+	<c:forEach var="reply" items="${thisPage.rows}" varStatus="floor">
+		<div class="t">
+			<table style="BORDER-TOP-WIDTH: 0px; TABLE-LAYOUT: fixed">
+				<tr class="tr1">
+					<th style="WIDTH: 20%">
+						<b>#${(floor.index + 2)+(pageNo-1)*pageSize}</b><br/>
+						<b>${reply.author}</b><br/>
+						组别：${user_dao.getUserTypeNameById(reply.type)}<br/>
+						性别：${user_dao.getSexName(reply.sex)}<br/>
+						<img src="image/head/${reply.face}" alt=""/><br/>
+						注册:${reply.regtime}<br/>
+					</th>
+					<th>
+						<h4>${reply.title}</h4>
+						<div>${reply.contents}</div>
+						<div class="tipad gray">
+
+							发表：[${common_dao.getDateFormat(reply.publishtime)}]
+							发表：[${reply.publishtime}]
+
+							<!--最后修改时间-->
+							<c:if test="${empty reply.modifytime}">
+								最后修改:[${common_dao.getDateFormat(reply.modifytime)}]
+							</c:if>
+
+							<!--只有管理员能删除-->
+							<c:if test="${user.utype eq 2}">
+								<A href="servletDetailPage?tid=${tid}&sid=${sid}&action=delReply"
+								   onclick = "return confirm('确定要删除吗?');">[删除]</A>
+							</c:if>
+
+							<!--只有管理员和当前帖发帖用户能修改-->
+							<c:if test="${user.utype eq 2 or user.uid eq reply.uid}">
+								<A href="servletDetailPage?tid=${tid}&sid=${sid}
+							&action=editTopic">[修改]</A>
+							</c:if>
+
+						</div>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</c:forEach>
+</c:if>
+
 </DIV>
-<!--         翻 页         -->
-	<DIV class="pages">
-	
-	<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=PreviousPage%>">上一页</a>&nbsp;|&nbsp;
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=nextPage%>">下一页</a>&nbsp;|&nbsp;
-	<%
-		if(PageCount > 0){
-	%>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=1"><<</a>&nbsp;
-		
-	<%-- 实现分页 主要代码二 开始	只显示x个页码导航按钮 --%>
-	<%
-		 Integer x  = 3;//控制分页导航按钮显示的个数
-		 if(x > PageCount){//防止 x 超出分页总页数
-		 	x = PageCount;
-		 }
-		
-		Integer pageNavigationStartIndex = 1;//分页导航按钮开始索引
-		Integer pageNavigationEndIndex = x+1;//分页导航按钮结束索引
-		
-		if(PageCount == 1){
-		 	pageNavigationStartIndex = 1;
-		 	pageNavigationEndIndex = 2;
-		 }
-		 else
-		if(currPage <= 1){//如果选择了最前一页
-			pageNavigationStartIndex = 1;
-		}
-		else
-		if(currPage >= PageCount){//如果选择了最后一页
-			pageNavigationStartIndex = PageCount - (x-(x-1)) ;//分页导航开始索引
-			pageNavigationEndIndex = PageCount + 1;//分页导航结束索引
-		}
-		else
-		if(currPage >= x+1 && currPage < PageCount){//如果选择了最前一页与最后一页之间的区间
-			pageNavigationEndIndex = currPage+1;
-			pageNavigationStartIndex = pageNavigationEndIndex - x;
-		}
-	%>
-	<%-- 实现分页 主要代码二 结束 --%>
-	
-	<%-- 实现分页 打印代码一 开始 --%>
-	<%
-		for(int i = pageNavigationStartIndex; i < pageNavigationEndIndex; i++){
-	%>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=i%>"><%=i%></a>&nbsp;
-	<%
-		} 
-	%>
-	<%-- 实现分页 打印代码一 结束 --%>
-		<input style="width: 30px;height: 14px" type="text" onkeydown="javascript: if(event.keyCode==13){ location='servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage='+this.value+'';return false;}" \>
-		<a href="servletDetailPage?tid=<%=tid%>&sid=<%=sid%>&action=showPage&currPage=<%=PageCount%>">>></a>&nbsp;
-		Pages:&nbsp;(&nbsp;<%=currPage %>&nbsp;/&nbsp;<%=PageCount %>&nbsp;total&nbsp;)
-		&nbsp; 
-	<%
-		}
-	%>
-	
-	</DIV>
+
 <!--      声明        -->
 <BR>
 <CENTER class="gray">版权信息</CENTER>
-</BODY>
+
+<!-- jQuery and JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
 </HTML>
 

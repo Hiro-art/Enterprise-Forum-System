@@ -1,7 +1,7 @@
 package com.servlet;
 
 import com.Bean.TopicInfo;
-import com.alibaba.fastjson.JSON;
+//import com.alibaba.fastjson.JSON;
 import com.dao.TopicInfoDAO;
 
 import javax.servlet.ServletConfig;
@@ -29,8 +29,8 @@ import java.util.List;
  **/
 @WebServlet("/FindServlet")
 public class FindServlet extends HttpServlet {
-    private ServletConfig config = null;				//³õÊ¼»¯²ÎÊı
-    private TopicInfoDAO dao = new TopicInfoDAO();		//Ö÷ÌâDAO
+    private ServletConfig config = null;				//åˆå§‹åŒ–å‚æ•°
+    private TopicInfoDAO dao = new TopicInfoDAO();		//ä¸»é¢˜DAO
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -38,14 +38,14 @@ public class FindServlet extends HttpServlet {
         String partname = request.getParameter("partname");
         System.out.println(partname);
         TopicInfoDAO es = new TopicInfoDAO();
-        //¸ù¾İÃû×ÖËÑË÷
-        ArrayList<TopicInfo> list = null;//²éÑ¯·½·¨
+        //æ ¹æ®åå­—æœç´¢
+        ArrayList<TopicInfo> list = null;//æŸ¥è¯¢æ–¹æ³•
         try {
             list = es.findByPartName(partname);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("!!!!!!!!!!1£¡111£¡111£¡£¡£¡£¡£¡11£¡");
+        System.out.println("!!!!!!!!!!1ï¼111ï¼111ï¼ï¼ï¼ï¼ï¼11ï¼");
         System.out.println(list);
 
         request.getSession().setAttribute("1", list);
@@ -58,13 +58,13 @@ public class FindServlet extends HttpServlet {
 
 //        String json = JSON.toJSONString(list);
 //        PrintWriter writer = response.getWriter();
-//        writer.print(json);//´«µ½Ç°¶Ë
-        //Êı¾İ´«µ½Ç°Ì¨ºÍÇ°Ì¨ÏÔÊ¾Êı¾İ
-        //½«Êı¾İ´«µ½Ç°Ì¨
+//        writer.print(json);//ä¼ åˆ°å‰ç«¯
+        //æ•°æ®ä¼ åˆ°å‰å°å’Œå‰å°æ˜¾ç¤ºæ•°æ®
+        //å°†æ•°æ®ä¼ åˆ°å‰å°
 //        request.setAttribute("topicinfos",list);
 //        request.getRequestDispatcher("/list.jsp").forward(request,response);
 ////        response.("topicinfos");
-        //Ìø×ªµÄÒ³Ãæ
+        //è·³è½¬çš„é¡µé¢
 //        response.sendRedirect("list.jsp");
     }
 

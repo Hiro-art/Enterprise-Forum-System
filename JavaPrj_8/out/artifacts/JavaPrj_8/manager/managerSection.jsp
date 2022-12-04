@@ -1,77 +1,36 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="manager" uri="TagForManager" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.util.*,com.dao.*,com.page.*,com.Bean.*"%>
+		 pageEncoding="utf-8"%>
 <%@ include file="checkManagerLogin.jsp"%>
-<%
-	//初始化变量
-	List<SectionInfo> listParent = null;
-	SectionInfoDAO section_dao = new SectionInfoDAO();
-	ManagerDAO manager_dao = new ManagerDAO();
-%>
-<%!
-	List<SectionInfo> f(int id){
-		SectionInfoDAO section_dao = new SectionInfoDAO();
-		List<SectionInfo> list = section_dao.getSectionById(id);
-		
-		if(list.size() == 0){
-			return null;
-		}
-		for(int i = 0 ; i < list.size(); i++){
-			id = list.get(i).getSid();
-			//out.println("<h3>_"+list.get(i).getSname()+"</h3>");
-			f(id);
-		}
-		return list;
-	} 
-%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>无标题文档</title>
+	<title>无标题文档</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<Link href="/style/section.css" type="text/css" rel="stylesheet">
+	<link  href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/js/managerlogin.js" language="javascript"></script>
 </head>
-
-<style>
-body{
-	font-size:12px;
-}
-
-a{
-	color:#000000;
-	text-decoration: none;
-}
-
-a:hover{
-	color:#FF0000;
-	text-decoration:underline;
-}
-</style>
-
-<script type="text/javascript">
-	function check(){
-		return false;
-	}
-</script>
-
+<script src="/js/managerSection.js" type="text/javascript"></script>
 <body>
 <DIV style="FONT-SIZE: 14px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align=center>
-<DIV align="left">当前操作是：版块管理</DIV>
-<HR style="WIDTH: 99%; COLOR: #cccccc; HEIGHT: 1px;">
+	<DIV align="left">当前操作是：版块管理</DIV>
+	<HR style="WIDTH: 99%; COLOR: #cccccc; HEIGHT: 1px;">
 </DIV>
 <p></p><p></p>
-	<div>
-<%
-		listParent = section_dao.getSectionById(0);// 获得跟版块
-		List<String> strList = manager_dao.getAllSectionByList(listParent);
-		
-		for(int i = 0; i < strList.size(); i++){
-			out.println(strList.get(i));
-		}
-%>
-	</div>
-	<DIV style="FONT-SIZE: 11px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align=center>
-<HR style="WIDTH: 600px; COLOR: #cccccc; HEIGHT: 1px;">版权信息
+<div>
+	<manager:section/>
+</div>
+<DIV style="FONT-SIZE: 11px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align=center>
+	<HR style="WIDTH: 600px; COLOR: #cccccc; HEIGHT: 1px;">版权信息
 </DIV>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

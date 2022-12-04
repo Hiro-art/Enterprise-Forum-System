@@ -1,45 +1,26 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" import="com.Bean.*"%>
-<%
-	UserInfo temp = (UserInfo)session.getAttribute("users"); 
-	if(temp == null){
-		response.sendRedirect("err.htm");
-		return;
-	}
-%>
+
+<c:set var="temp" value="${sessionScope.users}"/>
+<c:if test="${empty temp}">
+    <c:redirect url="err.htm"/>
+</c:if>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML><HEAD><TITLE>管理员控制台登录</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK
-href="manager.css" type=text/css rel=stylesheet>
-
-<style type="text/css">
-<!--
-body {
-	margin-top: 250px;
-}
--->
-</style>
-
-<script language="javascript">
-function check() {
- if(document.loginForm.uName.value==""){
-    alert("用户名不能为空");
-    return false;
- }
- if(document.loginForm.uPass.value==""){
-    alert("密码不能为空");
-    return false;
- }
-}
-</script>
-</HEAD>
-<BODY style="BACKGROUND: #f4f6f7">
-
+<HTML><HEAD>
+    <TITLE>管理员控制台登录</TITLE>
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <LINK href="manager.css" type=text/css rel=stylesheet>
+    <link  href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/managerlogin.js" language="javascript"></script>
+    </HEAD>
+<BODY style="BACKGROUND: #f4f6f7;margin-top: 250px">
 <center>
 <div>
   <h2>管理员控制台登录</h2>
-
 	<form action="../ServletManager" onsubmit="return check()" name="loginForm" method="post">
 	<input type="hidden" name = "action" value="login"/>
 	<table width="26%"  border="0" align="center" cellpadding="0" cellspacing="0">
@@ -52,8 +33,7 @@ function check() {
             <td height="37"><label>用户名:</label></td>
             <td><label for=uName></label><input class=nofocus id=uName
                                                 onBlur="this.className='nofocus';" style="WIDTH: 200px"
-                                                onFocus="this.className='nofocus';" readonly size=25 value=<%=temp.getUname()%>
-    name=uName>
+                                                onFocus="this.className='nofocus';" readonly size=25 value="${temp.uname}" name=uName>
             </td>
           </tr>
           <tr>
@@ -75,13 +55,17 @@ function check() {
       </tr>
     </table>
 	</form>
-<p>&nbsp;</p>
-	<p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
 </div>
 </center>
 
-<DIV style="FONT-SIZE: 11px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align=center>
+<DIV style="FONT-SIZE: 11px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align="center">
 <HR style="WIDTH: 600px; COLOR: #cccccc; HEIGHT: 1px">
 版权信息
 </DIV>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
 </BODY></HTML>

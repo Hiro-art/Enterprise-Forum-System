@@ -91,7 +91,12 @@
     </servlet-mapping>
     <jsp-config>
         <taglib>
-            <taglib-uri>myTag</taglib-uri>
+            <taglib-uri>TagForDividingPage</taglib-uri>
+            <taglib-location>/WEB-INF/tld/divPage.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>TagForManager</taglib-uri>
             <taglib-location>/WEB-INF/tld/managerSection.tld</taglib-location>
         </taglib>
     </jsp-config>

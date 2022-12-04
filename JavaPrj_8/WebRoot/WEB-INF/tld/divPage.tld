@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--TLD是Tag Library Definition的缩写，即标签库定义，文件的后缀是tld-->
+<!--每个TLD文件对应一个标签库，一个标签库中可包含多个标签，TLD文件也称为标签库定义文件。-->
+
+<!--标签库定义文件的根元素是taglib，它可以包含多个tag子元素，每个tag子元素都定义一个标签-->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <tlib-version>1.0</tlib-version>
+    <!--标签头-->
+    <short-name>TagForDividingPage</short-name>
+    <!-- 定义该标签库的URI 必须添加但可以空-->
+    <uri>TagForDividingPage</uri>
+
+    <!-- 自定义标签的描述信息 -->
+    <tag>
+        <!-- 标签名 -->
+        <name>divPage</name>
+        <!-- 对应的标签处理类全限定名 -->
+        <tag-class>com.pageDividing.DivPageTag</tag-class>
+        <!-- 标签主体的类型 -->
+        <body-content>empty</body-content>
+        <!-- 当前页号属性的描述信息 -->
+        <attribute>
+            <!-- 属性名 -->
+            <name>pageNo</name>
+            <!-- 该属性是否为必要的 -->
+            <required>true</required>
+            <!-- 属性值是否可以在JSP运行时期动态产生 -->
+            <rtexprvalue>true</rtexprvalue>
+            <!-- 属性的数据类型 -->
+            <type>int</type>
+        </attribute>
+        <!-- 总记录数属性的描述信息 -->
+        <attribute>
+            <name>recordCount</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+        <!-- 总页数属性的描述信息 -->
+        <attribute>
+            <name>pageSize</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+        <!-- 分页标签要跳转的URI属性的描述信息 -->
+        <attribute>
+            <name>url</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+</taglib>

@@ -16,21 +16,13 @@
         <webroots>
           <root url="file://$MODULE_DIR$/WebRoot" relative="/" />
         </webroots>
-      </configuration>
-    </facet>
-    <facet type="web" name="Web2">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/classes/artifacts/JavaPrj_8/WEB-INF/web.xml" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/classes/artifacts/JavaPrj_8" relative="/" />
-        </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/WebRoot/WEB-INF/classes" />
+    <output-test url="file://$MODULE_DIR$/WebRoot/WEB-INF/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
