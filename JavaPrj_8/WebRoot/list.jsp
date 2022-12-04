@@ -267,6 +267,18 @@
 	<%
 		}
 	%>
+
+	<table>
+		<tr>
+			<td colspan="3">
+				<form action="${pageContext.request.contextPath}/FindServlet" >
+					<input type="text" placeholder="请输入帖子名" name="partname" />
+					<input type="submit" value="搜索"/>
+				</form>
+			</td>
+		</tr>
+	</table>
+
 	<%
 		if(!section_dao.isParentById(sid)){
 	%>
