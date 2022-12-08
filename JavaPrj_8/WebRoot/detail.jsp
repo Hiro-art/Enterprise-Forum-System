@@ -60,8 +60,8 @@
 
 	<!--      回复、新帖        -->
 	<div>
-		<a href="post.jsp?tid=${sid}&sid=${sid}&action=reply"><IMG src="image/reply.gif"  border="0" id=td_post></a>
-		<a href="post.jsp?tid=${tid}&sid=${tid}&action=post"><IMG src="image/post.gif"   border="0" id=td_post></a>
+		<a href="post.jsp?tid=${tid}&sid=${sid}&action=reply"><IMG src="image/reply.gif"  border="0" id=td_post></a>
+		<a href="post.jsp?tid=${tid}&sid=${sid}&action=post"><IMG src="image/post.gif"   border="0" id=td_post></a>
 	</div>
 
 
@@ -69,18 +69,14 @@
 	<!--pageSize和pageNo在标签类DivPageTag设定好了-->
 	<div class="divLeft">
 
-
 		<c:set var="pageSize" scope="session" value="10"/>
-
 		<c:set var="url" scope="session"
 			   value="servletDetailPage?tid=${tid}&sid=${sid}&action=showDetail"/>
-
 		<wld:divPage pageSize="${pageSize}" pageNo="${pageNo}" url="${url}" recordCount="${divPage_dao.getReplyCountInfoTid(tid)}"/>
 
 		<c:set var="pageNo" scope="session" value="${sessionScope.pageNo}"/>
 		<!--divPage_dao-->
 		<c:set var="thisPage" scope="session" value="${divPage_dao.CreatDetailPageInfoTid(tid,pageNo,pageSize)}"/>
-
 
 	</div>
 
@@ -173,14 +169,13 @@
 
 							<!--只有管理员能删除-->
 							<c:if test="${user.utype eq 2}">
-								<A href="servletDetailPage?tid=${tid}&sid=${sid}&action=delReply"
+								<A href="servletDetailPage?tid=${tid}&sid=${sid}&rid=${reply.id}&action=delReply"
 								   onclick = "return confirm('确定要删除吗?');">[删除]</A>
 							</c:if>
 
 							<!--只有管理员和当前帖发帖用户能修改-->
 							<c:if test="${user.utype eq 2 or user.uid eq reply.uid}">
-								<A href="servletDetailPage?tid=${tid}&sid=${sid}
-							&action=editTopic">[修改]</A>
+								<A href="servletDetailPage?tid=${tid}&sid=${sid}&rid=${reply.id}&action=editReply">[修改]</A>
 							</c:if>
 
 						</div>

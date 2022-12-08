@@ -1,7 +1,9 @@
 package com.pageDividing;
 
 import com.dao.ReplyInfoDAO;
+import com.dao.TopicInfoDAO;
 import com.page.DetailPage;
+import com.page.ListPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +86,74 @@ public class DivPageDAO {
         }
         return count;
     }
+
+    /**
+     * @param sid 板块编号
+     * @param pageNo 传入页号
+     * @param pageSize 传入页面大小
+     * @return Page<DetailPage>结果集
+     *
+     * 根据传入的tid为该主题的replyList构造相应第pageNo页的Page<DetailPage>结果集
+     */
+    public Page<ListPage> CreatListPageInfoSid(Integer sid, Integer pageNo, Integer pageSize) {
+
+        Page<ListPage> pm = new Page<ListPage>();
+        List<ListPage> topicList = null;
+
+        //确认传入tid不为空
+        if (sid != null) {
+            TopicInfoDAO topicInfoDAO = new TopicInfoDAO();
+            topicList = topicInfoDAO.getTopicInfoById(sid);
+
+            //总页数赋值
+            if (topicList.size() % pageSize == 0) {
+                pm.setTotal(topicList.size() / pageSize);
+            } else {
+                pm.setTotal(topicList.size() / pageSize + 1);
+            }
+
+            //页号赋值
+            pm.setPageNo(pageNo);
+
+            if(pageNo!=0) {
+                //计算第pageNo页的结果集
+                List<ListPage> res = new ArrayList<ListPage>();
+                for (int i = (pageNo - 1) * pageSize; i < pageSize * pageNo; i++) {
+                    if (i < topicList.size())
+                        res.add(topicList.get(i));
+                    System.out.println(i);
+                }
+
+                //当前页信息存放的列表赋值
+                pm.setSize(res.size());
+
+                //当前页信息存放的列表赋值
+                pm.setRows(res);
+            }
+        }
+
+        System.out.println(pm.toString());
+        return pm;
+    }
+
+    /**
+     *
+     * @param sid 主题编号
+     * @return 板块下主题topic的数量
+     */
+    public Integer getTopicCountInfoSid(Integer sid) {
+
+        Integer count = 0;
+
+        //确认传入tid不为空
+        if (sid != null) {
+            TopicInfoDAO topicInfoDAO = new TopicInfoDAO();
+            List<ListPage> topicList = topicInfoDAO.getTopicInfoById(sid);
+            count=topicList.size();
+        }
+        return count;
+    }
+
 }
 
 
