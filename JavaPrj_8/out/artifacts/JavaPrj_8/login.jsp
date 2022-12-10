@@ -66,6 +66,10 @@
 				<input class="input" tabIndex="2" type="password" maxLength="20" size="40" name="uPass"
 					   style="width: 225px">
 			</label><br>
+			<label style="width: 289px;text-align: left">
+				自动登录：
+				<input type="checkbox" name="remember" value="on" id="checkbox" >
+			</label><br>
 			<input class="btn"  tabIndex="3"  type="submit" value="登 录">
 		</form>
 	</c:if>

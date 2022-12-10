@@ -100,6 +100,17 @@
             <taglib-location>/WEB-INF/tld/managerSection.tld</taglib-location>
         </taglib>
     </jsp-config>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.Filter.LoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </filter-mapping>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

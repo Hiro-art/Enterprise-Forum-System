@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<%@taglib prefix="mytag" uri="myTag" %>
+<%@taglib prefix="manager" uri="TagForManager" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,7 +27,7 @@
         <td>注册时间</td>
         <td>类别</td>
     </tr>
-    <mytag:usersection/>
+    <manager:usersection/>
 </table>
 <DIV style="FONT-SIZE: 11px; PADDING-TOP: 60px; FONT-FAMILY: Arial" align=center>
     <HR style="WIDTH: 600px; COLOR: #cccccc; HEIGHT: 1px;">版权信息

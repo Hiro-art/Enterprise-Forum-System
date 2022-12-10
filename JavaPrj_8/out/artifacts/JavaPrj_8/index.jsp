@@ -27,18 +27,12 @@
 <DIV class="h">
 	<%@ include file="showLogin.jsp" %>
 </DIV>
+<jsp:useBean id="user_dao" class="com.dao.UserInfoDAO" scope="request"/>
+<jsp:useBean id="common_dao" class="com.dao.CommonDAO" scope="request"/>
+<jsp:useBean id="section_dao" class="com.dao.SectionInfoDAO" scope="request"/>
+<jsp:useBean id="reply_dao" class="com.dao.ReplyInfoDAO" scope="request"/>
+<jsp:useBean id="topic_dao" class="com.dao.TopicInfoDAO" scope="request"/>
 
-<%
-	SectionInfoDAO section_dao = new SectionInfoDAO();//版块DAO
-	TopicInfoDAO topic_dao = new TopicInfoDAO();	//主题DAO
-	ReplyInfoDAO reply_dao = new ReplyInfoDAO();	//回复DAO
-	CommonDAO common_dao=new CommonDAO();
-
-	request.setAttribute("section_dao", section_dao); // 一定要注意加到request域中
-	request.setAttribute("topic_dao", topic_dao); // 一定要注意加到request域中
-	request.setAttribute("reply_dao", reply_dao); // 一定要注意加到request域中
-	request.setAttribute("common_dao", common_dao); // 一定要注意加到request域中
-%>
 
 <div class="t">
 	<c:forEach var="listParent" items="${section_dao.getSectionById(0)}">
@@ -83,7 +77,7 @@
 									[ ${common_dao.getDateFormat(temp2.publishtime)}]</span>
 							</c:if>
 							<c:if test="${empty temp2}">
-									<SPAN><A href="servletDetailPage?tid${temp1.tid}
+									<SPAN><A href="servletDetailPage?tid=${temp1.tid}
 										&sid=${sId}&action=showDetail">${temp1.title}</A></SPAN>
 								<br/>
 								<span>${temp1.author}</span>
