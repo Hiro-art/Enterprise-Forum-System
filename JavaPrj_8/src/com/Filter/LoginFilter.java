@@ -13,6 +13,9 @@ import java.io.IOException;
 
 /**
  * 请求响应过滤器
+ * @author jxn
+ * @version 1.0
+ * @Date 2022.12.10
  */
 public class LoginFilter implements Filter {
 
@@ -24,7 +27,6 @@ public class LoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        //System.out.println("进入到后台登录过滤器");
         HttpServletRequest req = (HttpServletRequest)request;
         HttpServletResponse res = (HttpServletResponse)response;
         HttpSession session = req.getSession();
@@ -69,7 +71,7 @@ public class LoginFilter implements Filter {
             }
 
         }
-        // pass the request along the filter chain
+
         chain.doFilter(req, res);
 
     }
