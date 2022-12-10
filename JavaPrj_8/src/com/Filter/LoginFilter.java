@@ -24,7 +24,6 @@ public class LoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        //访问 mypage 页面前需要经过此过滤器
         //System.out.println("进入到后台登录过滤器");
         HttpServletRequest req = (HttpServletRequest)request;
         HttpServletResponse res = (HttpServletResponse)response;
