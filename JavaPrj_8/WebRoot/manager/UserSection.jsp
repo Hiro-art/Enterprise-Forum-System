@@ -26,6 +26,7 @@
         <td>头像</td>
         <td>注册时间</td>
         <td>类别</td>
+        <td>用户状态</td>
     </tr>
     <manager:usersection/>
 </table>
