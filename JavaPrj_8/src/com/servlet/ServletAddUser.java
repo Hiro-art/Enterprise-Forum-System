@@ -79,10 +79,11 @@ public class ServletAddUser extends HttpServlet {
             return;
         }
         sex = request.getParameter("gender");
+        //TODO 这边两个性别反了，我按照false女 true男改了，本地跑下来没问题，测试没问题就把这行注释删了
         if (sex.equals("1")) {// 女
-            sexType = true;
-        } else {// 男
             sexType = false;
+        } else {// 男
+            sexType = true;
         }
         userFace = request.getParameter("head");
         //
