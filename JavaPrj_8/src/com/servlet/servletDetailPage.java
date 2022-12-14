@@ -151,7 +151,45 @@ public class servletDetailPage extends HttpServlet {
 				}
 			}
 
-		} else if ("deltopic".equals(action.toLowerCase())) {// 【把整个帖子删除，包含跟帖】
+		}else if ("sticktopic".equals(action.toLowerCase())) {// 【置顶帖子】
+		// 获得参数
+		sid = Integer.parseInt(request.getParameter("sid"));
+		tid = Integer.parseInt(request.getParameter("tid"));
+		Boolean result = topicinfo_dao.stickIsTop(tid);
+		// 判断更改置顶参数成功与否
+		if (result) {
+			// 设置request对象的属性
+			request.setAttribute("tid",tid);
+			request.setAttribute("sid",sid);
+			// 转发
+			request.getRequestDispatcher(
+							"servletListPage?sid=" + sid + "&action=showDetail")
+					.forward(request, response);
+		} else {
+			out.print("<script>" + "alert('服务器忙！');"
+					+ "window.history.back();" + "</script>");
+		}
+
+	}else if ("unsticktopic".equals(action.toLowerCase())) {// 【取消置顶帖子】
+			// 获得参数
+			sid = Integer.parseInt(request.getParameter("sid"));
+			tid = Integer.parseInt(request.getParameter("tid"));
+			Boolean result = topicinfo_dao.unstickIsTop(tid);
+			// 判断更改置顶参数成功与否
+			if (result) {
+				// 设置request对象的属性
+				request.setAttribute("tid", tid);
+				request.setAttribute("sid", sid);
+				// 转发
+				request.getRequestDispatcher(
+								"servletListPage?sid=" + sid + "&action=showDetail")
+						.forward(request, response);
+			} else {
+				out.print("<script>" + "alert('服务器忙！');"
+						+ "window.history.back();" + "</script>");
+			}
+
+		}else if ("deltopic".equals(action.toLowerCase())) {// 【把整个帖子删除，包含跟帖】
 			// 获得参数
 			sid = Integer.parseInt(request.getParameter("sid"));
 			tid = Integer.parseInt(request.getParameter("tid"));

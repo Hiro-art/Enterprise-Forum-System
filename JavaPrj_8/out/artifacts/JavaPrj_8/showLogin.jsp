@@ -17,7 +17,7 @@
 	您尚未登录 <a href="${pageContext.request.contextPath}/login.jsp">登录</a>&nbsp;| &nbsp;<A href="${pageContext.request.contextPath}/reg.jsp">注册</A>|
 </c:if>
 <c:if test="${not empty user}">
-	欢迎:&nbsp;${sessionScope.users.uname}&nbsp;<a href="ServletManager?action=exit">[退出]</a>
+	欢迎:&nbsp;${sessionScope.users.uname}&nbsp;<a href="ServletLogin?action=exit">[退出]</a>
 	<c:if test="${user.utype eq '2'}">
 		<a href="${pageContext.request.contextPath}/manager/login.jsp">[管理]</a>
 	</c:if>

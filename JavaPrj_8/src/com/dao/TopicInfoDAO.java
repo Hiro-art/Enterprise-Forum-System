@@ -101,7 +101,7 @@ public class TopicInfoDAO {
 	 * @return List<ListPage> 返回一个集合
 	 */
 	public List<ListPage> getTopicInfoById(Integer sId) {
-		String sql = "select tId,tTopic,tReplyCount,(select uName from userInfo where uid = topicInfo.tuid) as tuid "
+		String sql = "select tId,tTopic,tReplyCount,(select uName from userInfo where uid = topicInfo.tuid) as tuid,tisTop "
 				+ "from topicInfo where tsid = ? order by tPublishTime desc";
 		List<ListPage> list = null;
 		try {
@@ -114,7 +114,12 @@ public class TopicInfoDAO {
 					temp.setReplycount(rs.getInt("tReplyCount"));
 					temp.setTitle(rs.getString("tTopic"));
 					temp.setTid(rs.getInt("tId"));
-					list.add(temp);
+					temp.setTisTop(rs.getBoolean("tisTop"));
+					if(!temp.getTisTop()){
+						list.add(temp);
+					}else{
+						list.add(0,temp);
+					}
 				}
 			}
 		} catch (SQLException e) {
@@ -125,6 +130,50 @@ public class TopicInfoDAO {
 			dao.closeConnection();
 		}
 		return list;
+	}
+
+	/**
+	 * 根据主帖id置顶
+	 *
+	 * @param tid
+	 *         主帖编号
+	 * @return Boolean 返回一个布尔型
+	 */
+	public Boolean stickIsTop(Integer tid){
+		int result = -1;
+		String sql = "update topicInfo set tisTop='1' where tid = ?";
+		try {
+			result = dao.executeUpdate(sql, new Object[] { tid });
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();
+			dao.closeStatement();
+			dao.closeConnection();
+		}
+		return result > 0 ? true : false;
+	}
+
+	/**
+	 * 根据主帖id取消置顶
+	 *
+	 * @param tid
+	 *         主帖编号
+	 * @return Boolean 返回一个布尔型
+	 */
+	public Boolean unstickIsTop(Integer tid){
+		int result = -1;
+		String sql = "update topicInfo set tisTop='0' where tid = ?";
+		try {
+			result = dao.executeUpdate(sql, new Object[] { tid });
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dao.closeResultSet();
+			dao.closeStatement();
+			dao.closeConnection();
+		}
+		return result > 0 ? true : false;
 	}
 
 	/**
@@ -158,6 +207,8 @@ public class TopicInfoDAO {
 				topicinfo.setTsid(rs.getInt("tSid"));
 				topicinfo.setTtopic(rs.getString("tTopic"));
 				topicinfo.setTuid(rs.getInt("tUid"));
+				topicinfo.setTisTop(rs.getBoolean("tisTop"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -377,10 +428,16 @@ public class TopicInfoDAO {
 
 	// 测试
 	public static void main(String[] args) {
+//		TopicInfoDAO dao1 = new TopicInfoDAO();
+//		List<ListPage> list = dao1.getTopicInfoById(71);
+//		System.out.print(list);
+
 		TopicInfoDAO dao = new TopicInfoDAO();
 		Boolean x = dao.insertTopicInfo("d", "d", 11, 1);
 		System.out.print(x);
 		// System.out.print(x);
 		// System.out.print(dao.updateTopicInfoById("33", "dfdsfsdfs", 1));
+		Boolean y = dao.stickIsTop(55);
+		System.out.print(y);
 	}
 }

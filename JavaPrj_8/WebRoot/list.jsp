@@ -194,6 +194,14 @@
 							<A href="servletDetailPage?tid=${topic.tid}
 							&sid=${sid}&action=showDetail">
 						${topic.title}</A>
+							<!--只有管理员能置顶-->
+							<c:if test="${user.utype eq 2 and topic.tisTop eq false}">
+								<a href="servletDetailPage?tid=${topic.tid}&sid=${sid}&action=stickTopic">[置顶]</a>
+							</c:if>
+							<!--只有管理员能取消置顶-->
+							<c:if test="${user.utype eq 2 and topic.tisTop eq true}">
+								<a href="servletDetailPage?tid=${topic.tid}&sid=${sid}&action=unstickTopic">[取消置顶]</a>
+							</c:if>
 						</td>
 						<td align="center">${topic.author}</td>
 						<td align="center">${topic.replycount}</td>
