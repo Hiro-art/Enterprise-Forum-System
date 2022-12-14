@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.match.*;
+
+/**
+ * 后台管理员用户删除Servlet
+ * @author Jia Xiaoning
+ */
 public class ServletDeleteUser extends HttpServlet{
 
     private UserInfoDAO udao = new UserInfoDAO();

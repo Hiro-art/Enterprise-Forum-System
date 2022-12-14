@@ -10,6 +10,9 @@ import javax.servlet.http.*;
 import com.dao.*;
 import com.Bean.*;
 
+/**
+ * 用户登录Servlet
+ */
 public class ServletLogin extends HttpServlet {
 
 	private UserInfoDAO udao = new UserInfoDAO();

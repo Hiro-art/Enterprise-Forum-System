@@ -10,6 +10,7 @@
 <%@ page import="java.util.*,com.dao.*,com.page.*,com.Bean.*"%>
 <%@ include file="checkManagerLogin.jsp"%>
 
+<%-- 后台管理员用户添加 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,7 +24,7 @@
 </style>
 
 <script type="text/javascript">
-
+<%--用户约束检查--%>
     function check(){
         var reguName = /^[\u4e00-\u9fa5A-Za-z0-9]{3,10}$/;
         var reguPass = /^[0-9a-zA-Z]{3,20}$/;
