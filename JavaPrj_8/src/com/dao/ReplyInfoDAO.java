@@ -216,8 +216,10 @@ public class ReplyInfoDAO {
 	public Boolean insertReplyInfo(String title, String content, Integer tid,
 			Integer sid, Integer uid) {
 		int result = -1;
-		String sql = "insert into replyInfo(rTid,rSid,rUid,rTopic,rContents)"
-				+ " values(?,?,?,?,?)";
+// 		String sql = "insert into replyInfo(rTid,rSid,rUid,rTopic,rContents)"
+// 				+ " values(?,?,?,?,?)";
+		String sql = "insert into replyInfo(rTid,rSid,rUid,rTopic,rContents,rPublishTime)"
+				+ " values(?,?,?,?,?,now())";
 		// 把\r\n替换成<br>
 		content = content.replace("<", "&lt;");
 		content = content.replace(">", "&gt;");
