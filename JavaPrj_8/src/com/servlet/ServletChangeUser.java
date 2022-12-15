@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.match.*;
 
+/**
+ * 用户信息修改Servlet
+ * @author Jia Xiaoning
+ */
 public class ServletChangeUser extends HttpServlet{
 
     private UserInfoDAO udao = new UserInfoDAO();

@@ -15,6 +15,7 @@ public class TopicInfo {
 	private Integer tclickcount; 	// 点击数量
 	private Date tpublishtime;		// 发帖时间
 	private Date tmodifytime; 		// 修改时间
+	private boolean tisTop;  //是否置顶
 
 	public Integer getTid() {
 		return tid;
@@ -86,5 +87,13 @@ public class TopicInfo {
 
 	public void setTmodifytime(Date tmodifytime) {
 		this.tmodifytime = tmodifytime;
+	}
+
+	public boolean getTisTop() {
+		return tisTop;
+	}
+
+	public void setTisTop(boolean tisTop) {
+		this.tisTop = tisTop;
 	}
 }

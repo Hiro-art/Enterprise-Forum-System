@@ -26,7 +26,7 @@ public class UserInfoDAO {
 	 */
 	public boolean checkReg(String userName, String passWord, boolean sex,
 			String userFace) {
-		String sql = "insert into userInfo(uName,uPassWord,uSex,uFace) values(?,?,?,?)";
+		String sql = "insert into userInfo(uName,uPassWord,uSex,uFace,uRegTime) values(?,?,?,?,now())";//加了注册日期
 		int result = -1;
 		try {
 			result = dao.executeUpdate(sql, new Object[] { userName, passWord,
@@ -199,6 +199,6 @@ public class UserInfoDAO {
 	 * @return 返回性别名
 	 */
 	public String getSexName(Boolean sex) {
-		return sex ? "男" : "女";
+		return sex ? "女" : "男";
 	}
 }

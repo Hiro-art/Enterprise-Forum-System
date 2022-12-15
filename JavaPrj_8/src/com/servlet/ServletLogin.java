@@ -10,6 +10,9 @@ import javax.servlet.http.*;
 import com.dao.*;
 import com.Bean.*;
 
+/**
+ * 用户登录Servlet
+ */
 public class ServletLogin extends HttpServlet {
 
 	private UserInfoDAO udao = new UserInfoDAO();
@@ -78,7 +81,12 @@ public class ServletLogin extends HttpServlet {
 
 		String real_passwd = udao.getUserInfo(userName).getUpassword();
 
-		if (real_passwd.equals(passWord)) {
+		if(real_passwd==null){
+			out.print("<script>" + "alert('用户名或者密码错误');"
+					+ "window.history.back();" + "</script>");
+		}
+
+		if (real_passwd.equals(passWord)&&real_passwd!=null) {
 
 			//设置session username属性表示用户已经登录
 			request.getSession().setAttribute("username", user.getUname());

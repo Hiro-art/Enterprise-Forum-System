@@ -105,26 +105,66 @@
 
 
                                 <tr>
+
                                     <td width="99" style="width: 90px">请选择头像:</td>
                                     <td>
-                                        <img src="../image/head/1.gif"/><input type="radio" name="head" value="1.gif" checked="checked">
-                                        <img src="../image/head/2.gif"/><input type="radio" name="head" value="2.gif">
-                                        <img src="../image/head/3.gif"/><input type="radio" name="head" value="3.gif">
-                                        <img src="../image/head/4.gif"/><input type="radio" name="head" value="4.gif">
-                                        <img src="../image/head/5.gif"/><input type="radio" name="head" value="5.gif">
-                                        <BR/>
-                                        <img src="../image/head/6.gif"/><input type="radio" name="head" value="6.gif">
-                                        <img src="../image/head/7.gif"/><input type="radio" name="head" value="7.gif">
-                                        <img src="../image/head/8.gif"/><input type="radio" name="head" value="8.gif">
-                                        <img src="../image/head/9.gif"/><input type="radio" name="head" value="9.gif">
-                                        <img src="../image/head/10.gif"/><input type="radio" name="head" value="10.gif">
-                                        <BR/>
-                                        <img src="../image/head/11.gif"/><input type="radio" name="head" value="11.gif">
-                                        <img src="../image/head/12.gif"/><input type="radio" name="head" value="12.gif">
-                                        <img src="../image/head/13.gif"/><input type="radio" name="head" value="13.gif">
-                                        <img src="../image/head/14.gif"/><input type="radio" name="head" value="14.gif">
-                                        <img src="../image/head/15.gif"/><input type="radio" name="head" value="15.gif">
-                                        <br/>
+                                        <table class="table">
+
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="../image/head/1.gif" alt="head1" style="width: 100%;"/><input type="radio" name="head" value="1.gif" checked="checked">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/2.gif" alt="head2" style="width: 100%;"/><input type="radio" name="head" value="2.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/3.gif" alt="head3" style="width: 100%;"/><input type="radio" name="head" value="3.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/4.gif" alt="head4" style="width: 100%;"/><input type="radio" name="head" value="4.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/5.gif" alt="head5" style="width: 100%;"/><input type="radio" name="head" value="5.gif">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="../image/head/6.gif" alt="head1" style="width: 100%;"/><input type="radio" name="head" value="1.gif" checked="checked">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/7.gif" alt="head2" style="width: 100%;"/><input type="radio" name="head" value="2.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/8.gif" alt="head3" style="width: 100%;"/><input type="radio" name="head" value="3.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/9.gif" alt="head4" style="width: 100%;"/><input type="radio" name="head" value="4.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/10.gif" alt="head5" style="width: 100%;"/><input type="radio" name="head" value="5.gif">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="../image/head/11.gif" alt="head1" style="width: 100%;"/><input type="radio" name="head" value="1.gif" checked="checked">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/12.gif" alt="head2" style="width: 100%;"/><input type="radio" name="head" value="2.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/13.gif" alt="head3" style="width: 100%;"/><input type="radio" name="head" value="3.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/14.gif" alt="head4" style="width: 100%;"/><input type="radio" name="head" value="4.gif">
+                                                </td>
+                                                <td>
+                                                    <img src="../image/head/15.gif" alt="head5" style="width: 100%;"/><input type="radio" name="head" value="5.gif">
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
                                     </td>
                                 </tr>
 

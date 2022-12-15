@@ -30,9 +30,9 @@ public class DivPageTag extends TagSupport {
 
         sb.append("<style type=\"text/css\">");
         sb.append(".pagination {padding: 5px;float:right;font-size:12px;}");
-        sb.append(".pagination a, .pagination a:link, .pagination a:visited {padding:2px 5px;margin:2px;border:1px solid #aaaadd;text-decoration:none;color:#006699;}");
-        sb.append(".pagination a:hover, .pagination a:active {border: 1px solid #ff0000;color: #000;text-decoration: none;}");
-        sb.append(".pagination span.current {padding: 2px 5px;margin: 2px;border: 1px solid #ff0000;font-weight: bold;background-color: #ff0000;color: #FFF;}");
+        sb.append(".pagination a, .pagination a:link, .pagination a:visited {padding:2px 5px;margin:2px;border:1px solid #B1D7B4;text-decoration:none;color:#006699;}");
+        sb.append(".pagination a:hover, .pagination a:active {border: 1px solid #B1D7B4;color: #000;text-decoration: none;}");
+        sb.append(".pagination span.current {padding: 2px 5px;margin: 2px;border: 1px solid #B1D7B4;font-weight: bold;background-color: #B1D7B4;color: #FFF;}");
         sb.append(".pagination span.disabled {padding: 2px 5px;margin: 2px;border: 1px solid #eee; color: #ddd;}");
         sb.append("</style>\r\n");
         sb.append("<div class=\"pagination\">\r\n");

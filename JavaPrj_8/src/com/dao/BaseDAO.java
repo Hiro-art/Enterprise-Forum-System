@@ -14,7 +14,7 @@ import java.util.List;
 public class BaseDAO {
 	public BaseDAO() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ public class BaseDAO {
 			if (conn == null || conn.isClosed()) {
 				conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/bbs?useUnicode=yes&characterEncoding=utf8",
-						"root", "803560");
+						"root", "2022");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

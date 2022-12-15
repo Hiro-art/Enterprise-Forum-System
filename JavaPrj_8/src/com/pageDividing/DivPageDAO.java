@@ -1,6 +1,8 @@
 package com.pageDividing;
 
+import com.Bean.SectionInfo;
 import com.dao.ReplyInfoDAO;
+import com.dao.SectionInfoDAO;
 import com.dao.TopicInfoDAO;
 import com.page.DetailPage;
 import com.page.ListPage;
@@ -153,6 +155,73 @@ public class DivPageDAO {
         }
         return count;
     }
+    /**
+     * @param sid 板块编号
+     * @param pageNo 传入页号
+     * @param pageSize 传入页面大小
+     * @return Page<SectionInfo>结果集
+     *
+     * 根据传入的tid为该主题的replyList构造相应第pageNo页的Page<DetailPage>结果集
+     */
+    public Page<SectionInfo> CreatSectionInfoPageInfoSid(Integer sid, Integer pageNo, Integer pageSize) {
+
+        Page<SectionInfo> pm = new Page<SectionInfo>();
+        List<SectionInfo> sectionList = null;
+
+        //确认传入tid不为空
+        if (sid != null) {
+            SectionInfoDAO sectionInfoDAO = new SectionInfoDAO();
+            sectionList = sectionInfoDAO.getSectionById(sid);
+
+            //总页数赋值
+            if (sectionList.size() % pageSize == 0) {
+                pm.setTotal(sectionList.size() / pageSize);
+            } else {
+                pm.setTotal(sectionList.size() / pageSize + 1);
+            }
+
+            //页号赋值
+            pm.setPageNo(pageNo);
+
+            if(pageNo!=0) {
+                //计算第pageNo页的结果集
+                List<SectionInfo> res = new ArrayList<SectionInfo>();
+                for (int i = (pageNo - 1) * pageSize; i < pageSize * pageNo; i++) {
+                    if (i < sectionList.size())
+                        res.add(sectionList.get(i));
+                    System.out.println(i);
+                }
+
+                //当前页信息存放的列表赋值
+                pm.setSize(res.size());
+
+                //当前页信息存放的列表赋值
+                pm.setRows(res);
+            }
+        }
+
+        System.out.println(pm.toString());
+        return pm;
+    }
+
+    /**
+     *
+     * @param sid 板块编号
+     * @return 父板块下子版块section的数量
+     */
+    public Integer getSectionCountInfoSid(Integer sid) {
+
+        Integer count = 0;
+
+        //确认传入tid不为空
+        if (sid != null) {
+            SectionInfoDAO sectionInfoDAO = new SectionInfoDAO();
+            List<SectionInfo> sectionList = sectionInfoDAO.getSectionById(sid);
+            count=sectionList.size();
+        }
+        return count;
+    }
+
 
 }
 

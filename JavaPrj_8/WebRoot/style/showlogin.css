@@ -1,0 +1,26 @@
+.mm{
+    height: 40px;
+    padding-bottom: 50px;
+}
+.test{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+.ff{
+    background-color: #ffb558;
+    color: white;
+    border-style: solid;
+    border-color: #ffb558;
+    border-width: medium;
+    width: 130px;
+    margin-right: 15px;
+}
+
+.sidebar>li :hover{
+    background: #428675;
+    color:#d9d9d9;
+}
+.touch-bg:hover{
+    background: #428675;
+}

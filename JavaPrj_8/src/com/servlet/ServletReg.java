@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.match.*;
 
+/**
+ * 用户注册Servlet
+ */
 public class ServletReg extends HttpServlet {
 
 	private UserInfoDAO udao = new UserInfoDAO();

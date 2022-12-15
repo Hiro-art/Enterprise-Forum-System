@@ -5,6 +5,8 @@
 
 <jsp:useBean id="sectioninfo_dao" class="com.dao.SectionInfoDAO" scope="request"/>
 <c:set var="page_sid" value="${pageContext.getAttribute('page_sid')}"/>
+<c:out value="${page_sid}"/>
+
 <c:forEach var="info" items="${sectioninfo_dao.getNavigationMenuById(page_sid)}">
 	<B>>>
 		<a href="servletListPage?sid=${info.sid}">${info.sname}</a>

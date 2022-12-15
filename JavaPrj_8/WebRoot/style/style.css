@@ -13,9 +13,6 @@ TEXTAREA {
 .gray {
 	COLOR: #818a89
 }
-.btn {
-	BORDER-RIGHT: #2C59AA 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2C59AA 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #2C59AA 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2C59AA 1px solid 
-}
 .input {
 	width: 225px; BORDER-RIGHT: #a6cbe7 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #a6cbe7 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 1em; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; BORDER-LEFT: #a6cbe7 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #a6cbe7 1px solid
 }
@@ -56,7 +53,7 @@ TEXTAREA {
 	PADDING-RIGHT: 0px; BORDER-TOP: #d4eff7 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 10px 0px 0px; PADDING-TOP: 5px
 }
 
-/*pages ·ÖÒ³µ¼º½³¬Á´½Ó*/
+/*pages ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .pages{margin:10px 0;font:11px/12px Tahoma}
 .pages *{vertical-align:middle;}
 .pages a{padding:1px 4px 1px;border:1px solid #76BAC2;margin:0 1px 0 0;text-align:center;text-decoration:none;font:normal 12px/14px verdana;}
