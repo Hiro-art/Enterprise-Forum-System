@@ -293,8 +293,10 @@ public class TopicInfoDAO {
 	public Boolean insertTopicInfo(String title, String content, Integer sid,
 			Integer uid) {
 		int result = -1;
-		String sql = "insert into topicInfo(tSid,tuid,tTopic,tContents)"
-				+ " values(?,?,?,?)";
+// 		String sql = "insert into topicInfo(tSid,tuid,tTopic,tContents)"
+// 				+ " values(?,?,?,?)";
+		String sql = "insert into topicInfo(tSid,tuid,tTopic,tContents,tPublishTime)"
+				+ " values(?,?,?,?,now())";
 		// 把\r\n替换成<br>
 		content = content.replace("<", "&lt;");
 		content = content.replace(">", "&gt;");
