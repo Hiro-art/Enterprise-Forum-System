@@ -10,6 +10,7 @@
 <%@ page import="java.util.*,com.dao.*,com.page.*,com.Bean.*"%>
 <%@ include file="checkManagerLogin.jsp"%>
 
+<%-- 后台管理员删除用户 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
