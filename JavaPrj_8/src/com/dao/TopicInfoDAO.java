@@ -338,9 +338,9 @@ public class TopicInfoDAO {
 		return result > 0 ? true : false;
 	}
 
-	public ArrayList<TopicInfo> findByPartName(String partName) throws SQLException {
+	public ArrayList<TopicInfo> findByPartName(String partName,Integer sid) throws SQLException {
 		dao.getConn();
-		String sql = "SELECT * FROM topicInfo where tTopic like '%" + partName + "%'";
+		String sql = "SELECT * FROM topicInfo where tTopic like '%" + partName + "%' and tSid = "+sid;
 //            String sql = "SELECT * FROM topicInfo where ttopic like '%" + partName + "%'" ;
 
 		ArrayList<TopicInfo> topicInfosnew = new ArrayList<>();

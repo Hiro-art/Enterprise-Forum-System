@@ -1,0 +1,42 @@
+.title{
+    height:100px;
+    background-color: #428675;
+    white-space: nowrap;
+}
+.imgset{
+    padding-bottom: 2%;
+}
+.parentSection{
+    margin-top:50px;
+    margin-bottom:20px;
+    height:300px;
+}
+.sectionTitle{
+    display:table-cell;
+    vertical-align:middle;
+    color: #FFFFFF;
+}
+.parentSectionColor{
+    background-color: #899f9d;
+    text-align:center;
+    display:table;
+}
+.sectionHerf{
+    color:white;
+}
+.sonSection{
+    height:100px;
+}
+.sonSectionColor{
+    background-color:#C9E3CB;
+    border: 10px solid #B1D7B4;
+    text-align:center;
+    display:table;
+}
+.sonSectionDetail{
+    height:100%;
+    border: 10px solid #B1D7B4;
+}
+.topicHerf{
+    color:#818a89;
+}

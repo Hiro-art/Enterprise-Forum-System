@@ -19,7 +19,6 @@ public class UserSection extends TagSupport {
         BaseDAO baseDAO = new BaseDAO();
         String sql = "select * from userinfo";
         ResultSet lst = null;
-
         try {
             lst = baseDAO.executeQuery(sql);
             ResultSetMetaData rsmd=lst.getMetaData();  //获取结果集的元数据

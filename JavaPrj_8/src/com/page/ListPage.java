@@ -10,7 +10,7 @@ public class ListPage {
 	private Integer replycount;
 	private Integer tid;
 	private boolean tisTop;
-	
+
 	public String getTitle() {
 		return title;
 	}

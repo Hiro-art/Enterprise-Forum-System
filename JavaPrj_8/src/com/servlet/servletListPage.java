@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -9,6 +10,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.el.ExpressionEvaluator;
+import javax.servlet.jsp.el.VariableResolver;
 
 import com.dao.*;
 import com.page.*;
@@ -34,6 +40,7 @@ public class servletListPage extends HttpServlet {
 						request.getParameter("sid"));	//获得版块编号参数
 		List<ListPage> list = dao.getTopicInfoById(sid);//查询该板块下所有主题
 		request.setAttribute("sid", sid);				//将版块编号保存到request范围
+
 		request.setAttribute("listPage", list);			//将主题列表保存到request范围
 		request.getRequestDispatcher("list.jsp").
 							forward(request, response);	//执行请求转发

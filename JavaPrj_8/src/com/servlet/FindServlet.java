@@ -36,19 +36,19 @@ public class FindServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         String partname = request.getParameter("partname");
-        System.out.println(partname);
+        Integer sid = Integer.parseInt(
+                request.getParameter("sid"));
         TopicInfoDAO es = new TopicInfoDAO();
         //根据名字搜索
         ArrayList<TopicInfo> list = null;//查询方法
         try {
-            list = es.findByPartName(partname);
+            list = es.findByPartName(partname,sid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("!!!!!!!!!!1！111！111！！！！！11！");
-        System.out.println(list);
 
-        request.getSession().setAttribute("1", list);
+
+        request.getSession().setAttribute("find", list);
 
         try{
             response.sendRedirect("query.jsp");
