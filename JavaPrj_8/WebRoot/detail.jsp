@@ -151,7 +151,7 @@
 				发表：[${common_dao.getDateFormat(topicObj.publishtime)}]
 
 				<!--最后修改时间-->
-				<c:if test="${empty topicObj.modifytime}">
+				<c:if test="${not empty topicObj.modifytime}">
 					最后修改:[${common_dao.getDateFormat(topicObj.modifytime)}]
 				</c:if>
 
