@@ -199,6 +199,6 @@ public class UserInfoDAO {
 	 * @return 返回性别名
 	 */
 	public String getSexName(Boolean sex) {
-		return sex ? "男" : "女";
+		return sex ? "女" : "男";
 	}
 }
